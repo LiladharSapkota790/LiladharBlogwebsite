@@ -1,9 +1,9 @@
 //jshint esversion:6
 
 /*create .env file in route directory  */
-require('dotenv').config();
 
 
+const dotenv= require('dotenv');
 const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
@@ -25,6 +25,11 @@ const {
 } = require('mongodb');
 
 
+dotenv.config();
+
+
+const app = express();
+
 mongoose.connect(process.env.Mongo_Cloud, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -37,10 +42,8 @@ mongoose.connect(process.env.Mongo_Cloud, {
 
 
 
-const homeStartingContent = "Welcome to Study Resource Center";
-const aboutContent = "About Us";
-const contactContent = " Contact Us";
-const app = express();
+
+
 
 app.set('view engine', 'ejs');
 
@@ -49,6 +52,10 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(express.json());
 app.use(express.static("public"));
+
+const homeStartingContent = "Welcome to Study Resource Center";
+
+
 
 
 const postSchema = {
