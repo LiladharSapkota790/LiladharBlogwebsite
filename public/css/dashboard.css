@@ -1,0 +1,276 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+navbar {
+  display: flex;
+  flex-direction: column;
+}
+
+.count-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+
+}
+
+.counting {
+  border: 1px solid #fffff6;
+  box-shadow: 13px 5px 15px grey;
+  padding: 2%;
+  cursor: pointer;
+  margin-left: 3%;
+  color: #000000;
+  border-radius: 15px;
+}
+
+.counting a {
+  text-decoration: none;
+}
+.counting:hover{
+  background:red;
+  border-radius: 20px;
+  /* transform: rotate(360deg); */
+  transition-duration: 1s;
+  color: #ffffff;
+}
+
+
+
+.dashboardnav {
+  height: 100%;
+  /* Full-height: remove this if you want "auto" height */
+  width: 190px;
+  /* Set the width of the sidebar */
+  position: fixed;
+  /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1;
+  /* Stay on top */
+  top: 0;
+  /* Stay at the top */
+  left: 0;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border: 0;
+  border-radius: 0;
+  margin-bottom: 0;
+  background-color: #357EC7;
+}
+
+/* Style page content */
+.main {
+  margin-left: 100px;
+  /* Same as the width of the sidebar */
+}
+
+/* The navigation menu links */
+.dashboardnav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #ffffff;
+  display: block;
+  cursor: pointer;
+  color: #ffffff;
+}
+
+.dashboardnav .companyname {
+  font-size: 1.5rem;
+  color: red;
+}
+
+/* When you mouse over the navigation links, change their color */
+.dashboardnav a:hover {
+  color: #f1f1f5;
+}
+
+.dashboardnav a:active {
+  background: #975ab6;
+}
+
+/* Dashboard style */
+
+.dashboard-heading{
+  margin-top: -4%;
+  margin-bottom: 2%;
+}
+
+.dashboard-heading-admin{
+  margin-top: 1%;
+  margin-left: 10%;
+}
+
+
+/* Emails style */
+.emails{
+  display: flex;
+  flex-wrap:wrap;
+  flex-direction: column;
+  border: 1px solid red;
+  padding: 1%;
+    background-color: lightblue;
+  border-radius: 10px;
+  margin-bottom: 2%;
+
+}
+
+.eachemail{
+  padding: 10px;
+}
+
+.customeremail::first-letter{  
+    text-transform:capitalize;
+    margin-left: 5px;
+
+}
+
+
+
+/*navbar style*/
+.dropbtn {
+  margin: 0 45%;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 165px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 1px, 0, 0.3);
+  z-index: 1;
+  border-radius: 15px;
+  margin: 0 6%;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 18px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #975ab6;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  width: auto;
+}
+
+.posts-dropbtn {
+  border: 1px solid grey;
+
+  border-left-style: none;
+  border-right-style: none;
+}
+
+
+/* styling message section */
+.messages{
+  display: flex;
+  flex-wrap:wrap;
+  flex-direction: row;
+  justify-self: unset;
+}
+.message-card{ 
+  border: 1px solid blueviolet;
+  padding: 2%;
+  width: 25%;
+  border-radius: 10px;
+  box-shadow: #975ab6;
+  margin: 1% 2%;
+  background-color: rgb(230, 231, 250);
+
+}
+
+
+
+/* styling for posts page admin */
+
+.posts{ 
+  padding: 1%;
+  margin-left: -6%;
+}
+
+.postans{
+  margin: 0;
+  padding-bottom: 10px;
+  font-size: large;
+}
+
+.eachpost{
+  border: 1px solid grey;
+  padding: 15px;
+  border-bottom-width: thick;
+  border-radius: 10px;
+  margin-bottom: 1.6%;
+  background-color:#f1f1f5;
+}
+
+
+
+/* style for compose form */
+.form-group {
+  border-radius: 20px;
+  box-shadow: 1px 1px 14px grey;
+}
+
+.compose-form{
+  margin: 0;
+  width: 60%;
+  padding: 20px;
+  
+}
+.form-group tr {
+  padding: 4%;
+}
+
+
+
+.compose-label {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-bottom: 1%;
+}
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px;
+  }
+
+  .sidenav a {
+    font-size: 18px;
+  }
+
+  .main {
+    margin-left: 150px;
+    /* Same as the width of the sidebar */
+  }
+
+
+  .dashboard-heading {
+    margin-top: -4%;
+  margin-left: 10%;
+
+}
+}

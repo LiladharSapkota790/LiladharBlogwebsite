@@ -1,0 +1,38 @@
+<%-include("dashboardpartials/dheader"); -%>
+
+
+
+  <h2 class="common-heading-md"> Compose a Post </h2>
+
+
+  <form  class="compose-form" action="/compose" method="post">
+   
+      <tr>
+        <td> <label for="topic" class="compose-label"> Topics </label> <br> <input type="text" name="topic" class="posttitle form-control" placeholder="Topics related to..." required> </td>
+
+      </tr>
+
+      <tr>
+        <td> <label for="title" class="compose-label"> Title</label> <br> <input type="text" name="posttitle" class="posttitle form-control" placeholder="Title or question..." required> </td>
+
+      </tr>
+
+      <tr>
+        <td> <label for="post" class="compose-label">Post</label> <br> <textarea name="postbody" class="posttitle form-control" rows="4" cols="60" placeholder="Details about topic" required></textarea></td>
+        <br>
+      </tr>
+
+      <tr>
+        <td> <label for="post" class="compose-label">Images/Files</label> <br> <input type="file" name="File" value=""> </td>
+        <br>
+      </tr>
+
+      <tr>
+        <td> <button type="submit" name="" class="btn btn-primary btn-lg"> Publish </button> </td>
+      </tr>
+    </table>
+
+
+  </form>
+</div>
+

@@ -1,0 +1,20 @@
+<%-include("dashboardpartials/dheader"); -%>
+<div id="posts" class="posts">
+ 
+    <form action="/delete" method="post">
+      <% allposts.forEach(function(post){ %>
+      <div class="eachpost">
+        <h6 class="common-heading-sm"> <strong> Q.N:</strong> <%=post.posttitle%> </h6>
+     
+        <p contenteditable="true"  class="postans"> <%=post.postbody%> </p>
+        <a href="/allposts/<%=post._id%>" class="btn btn-sm btn-info">Read More</a>
+        <button type="checkbox" name="checkboxfordelete" onchange="this.form.submit()" value="<%=post._id %>" onclick="return confirm('Are you sure you want to delete this item?');" class="btn btn-warning"> Delete </button>
+        <button type="checkbox" name="checkboxforedit" onchange="this.form.submit()" value="<%=post._id %>" onclick="return confirm('Are you sure you want to Edit this item?');" class="btn btn-info"> Edit </button>
+      </div>
+
+      <% }) %>
+
+    </form>
+
+  
+</div>

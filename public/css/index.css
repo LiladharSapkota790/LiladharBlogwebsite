@@ -1,0 +1,98 @@
+.container-fluid-landing {
+  height: 80vh;
+  background-image: url("/images/girlsstudying.jpg");
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+/* landing page css  */
+
+.company-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 1 0 7%;
+  margin-left: 29%;
+  padding-top: 4%;
+}
+
+.company-message .main-heading {
+  font-size: 4rem;
+  font-weight: 900;
+  font-family: emoji;
+  color: #ffffff;
+  margin-bottom: 4%;
+  margin-top: 6%;
+  text-align: center;
+  width: 56%;
+  line-height: 1.4;
+  box-shadow: 1px 3px 2px grey;
+}
+
+.company-message a {
+  margin: 1%;
+}
+
+.study {
+  font-size: 5.3rem;
+  padding: 0 1%;
+}
+
+.row>* {
+  flex-shrink: 0;
+  max-width: 100%;
+  padding-right: calc(var(--bs-gutter-x) * .5);
+  padding-left: calc(var(--bs-gutter-x) * .5);
+  margin-top: var(--bs-gutter-y);
+}
+
+
+.company-message .btn-studyresource {
+  font-size: 1.52em;
+  ;
+}
+
+/* home newletter  */
+.ournewsletter {
+  margin-top: 5%;
+}
+
+.home-email-input {
+  font-size: 1.5em;
+  padding: 15px;
+  width: 30%;
+  border: none;
+  box-shadow: -1px 3px -1px grey;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.home-email-input::after {
+  content: "";
+  border-top-right-radius: 50%;
+  border-top-color: red;
+  font-size: 2rem;
+}
+
+.subscribe-btn-home {
+  padding: 15px;
+  background-color: red;
+  width: 10%;
+  position: relative;
+  border: none;
+  color: #ffffff;
+  font-size: 1.5em;
+  margin-left: -2%;
+  box-shadow: 1px 3px 1px grey;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  font-size: 1.5em;
+}

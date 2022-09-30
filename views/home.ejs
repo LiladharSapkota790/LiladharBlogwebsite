@@ -1,0 +1,72 @@
+<%-include("partials/header"); -%>
+
+
+
+
+
+
+<div class="container">
+  <h2 class="home-heading"> <%= Home %> </h2>
+
+
+  <div class=" home-nav row">
+    <div class="col-lg-3">
+      <p> <a href="/topics/related/random" class="btn btn-primary btn-lg related-btn"> Topics and discussions </a> </p>
+    </div>
+
+    <div class="col-lg-3">
+      <p> <a href="/topics/related/c#" class="btn btn-primary btn-lg related-btn ">Topics on C# </a> </p>
+    </div>
+
+
+    <div class="col-lg-3">
+      <p> <a href="/topics/related/html" class="btn btn-primary btn-lg related-btn "> Topics on html Tips </a> </p>
+    </div>
+
+
+    <div class="col-lg-3">
+      <p> <a href="/topics/related/database" class="btn btn-primary btn-lg related-btn "> Discussion on Database </a> </p>
+    </div>
+
+
+  </div>
+
+</div>
+
+<div class="container">
+  <h3 class="Frequently"> Most Frequently viewed Answers! </h3>
+</div>
+
+
+<div class="container-fluid-home">
+
+  <form action="/delete" method="post" class="home-container">
+    <% allposts.forEach(function(post){ %>
+
+    <div class="question-div">
+      <a href="/allposts/<%=post._id%>" class="question-link" <h6> <strong> Q.N:</strong> <%=post.posttitle%> </h6> </a>
+    </div>
+
+    <div class="answer">
+      <p hidden> <%=post.postbody%> </p>
+    </div>
+
+    <% }) %>
+
+  </form>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<%-include("partials/footer"); -%>
