@@ -25,13 +25,13 @@ const {
 } = require('mongodb');
 
 
-mongoose.connect(process.env.Mongo_Cloud, {useNewUrlParser: 
+mongoose.connect(process.env.Mongo_Cloud, {useNewUrlParser:
   true})
   .then( () => {
     console.log('Connection to the Atlas Cluster is successful!')
   })
   .catch( (err) => console.error(err));
- 
+
 
 
 const homeStartingContent = "Welcome to Study Resource Center";
@@ -74,7 +74,6 @@ const Message = require("./models/customerMessage");
 
 // Handling post request from customer message
 app.post("/CustomerMessage", (req, res) => {
-  console.log(req.body.customerFullname);
   var customermessages = {
     email2: req.body.customerEmail,
     fullname: req.body.customerFullname,
