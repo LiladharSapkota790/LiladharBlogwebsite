@@ -1,13 +1,13 @@
 {
   "name": "liladharblogwebsite",
   "version": "1.0.0",
-  "description": "",
+  "description": "This is blog website for study purpose",
   "main": "app.js",
   "scripts": {
     "Start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Liladhar Sapkota",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.1",
@@ -21,5 +21,23 @@
     "node": "^17.4.0",
     "nodemon": "^2.0.19",
     "router": "^1.3.7"
-  }
+  },
+  "engines": {
+     "node": "16.14.0"
+   },
+
+
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LandEcreation/LiladharBlogwebsite.git"
+  },
+  "keywords": [
+    "blogwebsite",
+    "heroku"
+  ],
+  "bugs": {
+    "url": "https://github.com/LandEcreation/LiladharBlogwebsite/issues"
+  },
+  "homepage": "https://github.com/LandEcreation/LiladharBlogwebsite#readme"
 }
