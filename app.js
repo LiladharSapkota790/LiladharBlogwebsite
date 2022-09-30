@@ -25,8 +25,11 @@ const {
 } = require('mongodb');
 
 
-mongoose.connect(process.env.Mongo_Cloud, {useNewUrlParser:
-  true})
+mongoose.connect(process.env.Mongo_Cloud, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+  })
   .then( () => {
     console.log('Connection to the Atlas Cluster is successful!')
   })
