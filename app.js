@@ -147,9 +147,7 @@ app.get("/content", function(req, res) {
 
 
 app.get("/about", function(req, res) {
-  res.render("about", {
-    about: aboutContent
-  });
+  res.render("about");
 });
 
 
