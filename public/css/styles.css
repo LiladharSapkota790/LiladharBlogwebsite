@@ -209,9 +209,9 @@ header {
   width: 40%;
   padding: 0.4%;
   border-radius: 20px;
-  padding-left: 10px;
-  
-  
+
+
+
 }
 .newsletterinputfooter::first-letter{
   transform: upperCase;
@@ -270,7 +270,7 @@ header {
 
 .formforcontributor .form-label {
   font-size: 2rem;
-  
+
 }
 
 .register-head {
@@ -312,6 +312,15 @@ justify-content: space-evenly;
 
 
 
+/*error styling*/
+.alcenter{
+  text-align: center;
+}
+.errorpage, img{
+  width: 78%;
+
+}
+
 /* for mobile and small devices */
 
 
@@ -324,7 +333,7 @@ justify-content: space-evenly;
     background-size: cover;
     background-attachment: fixed;
     text-align: center;
-  
+
     padding: 0;
 }
   .company-message {
