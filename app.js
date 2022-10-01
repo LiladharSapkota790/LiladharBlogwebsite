@@ -33,7 +33,7 @@ const app = express();
 mongoose.connect(process.env.Mongo_Cloud, {
     useNewUrlParser: true,
     useUnifiedTopology: true
-  
+
   })
   .then( () => {
     console.log('Connection to the Atlas Cluster is successful!')
@@ -157,7 +157,7 @@ app.get("/about", function(req, res) {
 
 app.get("/contact", function(req, res) {
   res.render("contact", {
-    contact: contactContent
+    contact: "contactContent"
   });
 });
 
