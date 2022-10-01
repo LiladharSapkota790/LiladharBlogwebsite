@@ -32,8 +32,8 @@ const app = express();
 
 mongoose.connect(process.env.Mongo_Cloud, {
     useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
+    useUnifiedTopology: true
+  
   })
   .then( () => {
     console.log('Connection to the Atlas Cluster is successful!')
