@@ -9,7 +9,9 @@ header {
 }
 
 /*common css */
-.common-heading-sm, .common-heading-md, .common-heading-lg {
+.common-heading-sm,
+.common-heading-md,
+.common-heading-lg {
   font-family: Times;
   font-weight: bold;
   color: purple;
@@ -24,7 +26,7 @@ header {
 .common-heading-md {
   font-size: 2.44rem;
   font-family: "arial", sans-serif;
-  margin:1%;
+  margin: 1%;
 }
 
 .common-heading-lg {
@@ -32,11 +34,20 @@ header {
   font-family: arial;
 }
 
+.commonsize {
+  font-size: 1.44rem;
+}
+
 .common-para {
   font-size: 1.35rem;
   line-height: 1.5;
   font-family: 'Lato', sans-serif;
 }
+
+.red {
+  color: red;
+}
+
 
 .container-fluid {
   padding: 4% 12%;
@@ -73,12 +84,13 @@ header {
 }
 
 .navbar-default .navbar-nav>li>a:hover {
-  color: #1abc9c;
-  border: 2px solid #975ab9;
+  border: 1px solid #975ab9;
   border-bottom: thick;
   border-radius: 20px;
-  background-color: #975ab9;
   color: #ffffff;
+  font-size: 1rem;
+  background-color: #975ab6;
+  margin-right: 5px;
 }
 
 .navbar-nav {
@@ -86,7 +98,7 @@ header {
   flex-direction: row;
 }
 
-.btn-join{
+.btn-join {
   border: 1px solid #975ab6;
   padding: 10px;
   background-color: #975ab6;
@@ -112,17 +124,17 @@ header {
 
 .question-div .question-link {
   color: #000000;
-  font-size: 2rem;
+  font-size: 1.4rem;
   padding: 10px;
   text-decoration: none;
 }
 
 .question-link:hover {
-  background: #ccc;
+
   color: #000000;
   font-weight: bold;
-  font-size: 2rem;
-  padding: 10px;
+  font-size: 1.52rem;
+  padding: 15px;
   border-radius: 10px;
 }
 
@@ -173,7 +185,7 @@ header {
 
 
 /* Content page // home.ejs page styling */
-.related-btn{
+.related-btn {
   font-size: 1.5em;
 }
 
@@ -205,7 +217,8 @@ header {
 .footer-p p {
   opacity: 1;
 }
-.newsletterinputfooter{
+
+.newsletterinputfooter {
   width: 40%;
   padding: 0.4%;
   border-radius: 20px;
@@ -213,9 +226,11 @@ header {
 
 
 }
-.newsletterinputfooter::first-letter{
+
+.newsletterinputfooter::first-letter {
   transform: upperCase;
 }
+
 .copyright {
   text-align: center;
   padding: 4%;
@@ -255,13 +270,11 @@ header {
 
 /*for contributor registration*/
 .formforcontributor {
-  width: 40%;
-  margin: 2% 28%;
-  /* text-align: center; */
   border: 1px solid #090d11;
   border-radius: 15px;
   padding: 2%;
   box-shadow: 1px 2px 3px grey;
+
 }
 
 .posttitle {
@@ -275,7 +288,7 @@ header {
 
 .register-head {
 
-text-align: center;
+  text-align: center;
 }
 
 /*Contact us section style*/
@@ -283,12 +296,12 @@ text-align: center;
   padding: 4% 12%;
 }
 
-.form-div{
+.form-div {
 
-display: flex;
+  display: flex;
 
-align-items: center;
-justify-content: space-evenly;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 .formformessage {
@@ -302,21 +315,23 @@ justify-content: space-evenly;
 
 }
 
-.contact-input{
+.contact-input {
   font-size: 1.52rem;
 }
 
-.form-text{
+.form-text {
   font-size: 1.52rem;
 }
 
 
 
 /*error styling*/
-.alcenter{
+.alcenter {
   text-align: center;
 }
-.errorpage, img{
+
+.errorpage,
+img {
   width: 78%;
 
 }
@@ -324,30 +339,124 @@ justify-content: space-evenly;
 /* for mobile and small devices */
 
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 900px) {
+  .common-para {
+    font-size: 1rem;
+  }
+
   .container-fluid-landing {
     height: 56vh;
     background-image: url(/images/girlsstudying.jpg);
     /* background-position: bottom; */
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
     background-attachment: fixed;
     text-align: center;
-
     padding: 0;
-}
-  .company-message {
-    display: flex;
-    flex-direction: column;
+  }
+
+  .navbar-brand {
+    height: 50px;
+
+  }
+
+
+
+  .navbar {
+    margin-bottom: 0;
+    background-color: #357EC7;
+  }
+
+  .navbar {
+    position: relative;
+    flex-wrap: wrap;
     align-items: center;
-    /* justify-content: center; */
-    text-align: center;
-    padding: 0 1 0 7%;
-        padding-top: 31%;
+    justify-content: space-between;
+
+  }
+
+  .nav>li {
+    margin-left: 5px;
+  }
+
+  .navbar-default .navbar-nav>li>a:hover{
+border: 1px solid none;
+margin-bottom: 5px;;
+  }
+
+  
+.btn-join{
+  margin-left:90px;
 }
 
+.container-fluid-landing .company-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-top: 4%;
+}
+
+  .dashboardnav {
+    height: 100%;
+    /* width: 190px; */
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    /* padding-top: 15px; */
+    /* padding-bottom: 15px; */
+    border: 0;
+    border-radius: 0;
+    margin-bottom: 0;
+    background-color: #357EC7;
+  }
 
 
 
+
+  /* style for joinand contribute */
+  .formforcontributor {
+    width: 100%;
+       border-radius: 15px;
+    padding: 10%;
+    box-shadow: 1px 2px 3px grey;
+    border: 1px solid #090d11;
+    border-radius: 15px;
+    padding: 2%;
+    box-shadow: 1px 2px 3px grey;
+}
+
+.home-email-input{
+  width: 82%;
+}
+
+.home-nav {
+  display: block;
+}
+
+.related-btn {
+  font-size: 1em;
+
+
+}
+
+.related-btn>a { 
+  margin:10px;
+}
+
+.container-fluid-home {
+  padding: 10% 3%;
+}
+
+.question-div{
+  border: 1px solid #000000;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  margin-bottom: 7px;
+  border-radius: 2px;
+}
 
 }

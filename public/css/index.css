@@ -91,8 +91,14 @@
   color: #ffffff;
   font-size: 1.5em;
   margin-left: -2%;
-  box-shadow: 1px 3px 1px grey;
+
+  z-index: 1;
+
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
   font-size: 1.5em;
 }
+
+
+/* for mobile devices */
+
