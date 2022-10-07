@@ -5,11 +5,10 @@
     <% allposts.forEach(function(post){ %>
     <div class=" eachpost">
       <p> <%=post.topic %></p>
-      <h3> <strong> Q.N:</strong> <%=post.posttitle%> </h3>
-    </div>
-
-    <div class="answer">
-      <p> <%=post.postbody%> </p>
+      <h3 class="common-heading-forquestion"> <strong> Q.N:</strong> <%=post.posttitle%> </h3>
+   
+    
+      <p class="postans"> <%=post.postbody%> </p>
      </div>
     <% }) %>
 

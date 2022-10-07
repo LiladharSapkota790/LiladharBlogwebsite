@@ -1,3 +1,9 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
 header {
   padding: 0.8%;
   text-align: center;
@@ -20,7 +26,6 @@ header {
 .common-heading-sm {
   font-size: 0.9rem;
   font-family: 'Lato', sans-serif;
-
 }
 
 .common-heading-md {
@@ -48,7 +53,6 @@ header {
   color: red;
 }
 
-
 .container-fluid {
   padding: 4% 12%;
 }
@@ -63,6 +67,8 @@ header {
   font-size: 12px;
   letter-spacing: 5px;
   background-color: #357EC7;
+  display: flex;
+  position: relative;
 }
 
 .navbar-header .navbar-brand {
@@ -70,10 +76,11 @@ header {
   align-items: center;
 }
 
+
 .navbar-brand img {
-  width: 75%;
-  padding: 6% 1% 0 0;
-  margin-top: 3%;
+  width: 50%;
+z-index: 3;
+
 }
 
 .navbar-default .navbar-nav>li>a {
@@ -96,6 +103,8 @@ header {
 .navbar-nav {
   display: flex;
   flex-direction: row;
+  margin: 0;
+  padding: 0;
 }
 
 .btn-join {
@@ -105,7 +114,24 @@ header {
   border-radius: 20px;
 }
 
+/*hamburger menu*/
+.toggle-button {
+  position: absolute;
+  top: 3.2rem;
+  right: 1rem;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+}
 
+.toggle-button .bar {
+  height: 3px;
+  width: 100%;
+  background-color: white;
+  border-radius: 10px;
+}
 
 /*<><><><><><> finished header*/
 /*Styling home page */
@@ -130,7 +156,6 @@ header {
 }
 
 .question-link:hover {
-
   color: #000000;
   font-weight: bold;
   font-size: 1.52rem;
@@ -183,14 +208,10 @@ header {
   box-shadow: 10px 5px 15px 20px #ffffff;
 }
 
-
 /* Content page // home.ejs page styling */
 .related-btn {
   font-size: 1.5em;
 }
-
-
-
 
 /*footer styling*/
 .footer {
@@ -222,9 +243,6 @@ header {
   width: 40%;
   padding: 0.4%;
   border-radius: 20px;
-
-
-
 }
 
 .newsletterinputfooter::first-letter {
@@ -266,15 +284,12 @@ header {
 }
 
 /*for compose page style*/
-
-
 /*for contributor registration*/
 .formforcontributor {
   border: 1px solid #090d11;
   border-radius: 15px;
   padding: 2%;
   box-shadow: 1px 2px 3px grey;
-
 }
 
 .posttitle {
@@ -283,11 +298,9 @@ header {
 
 .formforcontributor .form-label {
   font-size: 2rem;
-
 }
 
 .register-head {
-
   text-align: center;
 }
 
@@ -297,9 +310,7 @@ header {
 }
 
 .form-div {
-
   display: flex;
-
   align-items: center;
   justify-content: space-evenly;
 }
@@ -312,7 +323,6 @@ header {
   border-radius: 15px;
   padding: 2%;
   box-shadow: 1px 15px 13px grey;
-
 }
 
 .contact-input {
@@ -323,8 +333,6 @@ header {
   font-size: 1.52rem;
 }
 
-
-
 /*error styling*/
 .alcenter {
   text-align: center;
@@ -333,15 +341,50 @@ header {
 .errorpage,
 img {
   width: 78%;
-
 }
 
 /* for mobile and small devices */
-
-
 @media only screen and (max-width: 900px) {
   .common-para {
     font-size: 1rem;
+  }
+
+  .common-heading-forquestion {
+    font-size: 1.56rem;
+    font-weight: bold;
+  }
+
+  /*for responsive navbar*/
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .toggle-button {
+    display: flex;
+  }
+
+  .navbar-right {
+    display: none;
+    width: 100%;
+  }
+  .navbar-nav {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+  }
+
+  .navbar-links ul li {
+    text-align: center;
+  }
+
+  .navbar-links ul li a {
+    padding: .5rem 1rem;
+  }
+
+  .navbar-right.active {
+    display: flex;
   }
 
   .container-fluid-landing {
@@ -353,11 +396,6 @@ img {
     background-attachment: fixed;
     text-align: center;
     padding: 0;
-  }
-
-  .navbar-brand {
-    height: 50px;
-
   }
 
 
@@ -372,31 +410,27 @@ img {
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-
   }
 
   .nav>li {
     margin-left: 5px;
   }
 
-  .navbar-default .navbar-nav>li>a:hover{
-border: 1px solid none;
-margin-bottom: 5px;;
+  .navbar-default .navbar-nav>li>a:hover {
+    border: 1px solid none;
+    margin-bottom: 5px;
+
   }
 
-  
-.btn-join{
-  margin-left:90px;
-}
 
-.container-fluid-landing .company-message {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding-top: 4%;
-}
+  .container-fluid-landing .company-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-top: 4%;
+  }
 
   .dashboardnav {
     height: 100%;
@@ -413,50 +447,49 @@ margin-bottom: 5px;;
     background-color: #357EC7;
   }
 
-
-
-
   /* style for joinand contribute */
   .formforcontributor {
     width: 100%;
-       border-radius: 15px;
+    border-radius: 15px;
     padding: 10%;
     box-shadow: 1px 2px 3px grey;
     border: 1px solid #090d11;
     border-radius: 15px;
     padding: 2%;
     box-shadow: 1px 2px 3px grey;
-}
+  }
 
-.home-email-input{
-  width: 82%;
-}
+  .home-email-input {
+    width: 82%;
+  }
 
-.home-nav {
-  display: block;
-}
+  .home-nav {
+    display: block;
+  }
 
-.related-btn {
-  font-size: 1em;
+  .related-btn {
+    font-size: 1em;
+  }
 
+  .related-btn>a {
+    margin: 10px;
+  }
 
-}
+  .container-fluid-home {
+    padding: 10% 3%;
+  }
 
-.related-btn>a { 
-  margin:10px;
-}
+  .question-div {
+    border: 1px solid #000000;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    margin-bottom: 7px;
+    border-radius: 2px;
+  }
 
-.container-fluid-home {
-  padding: 10% 3%;
-}
-
-.question-div{
-  border: 1px solid #000000;
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  margin-bottom: 7px;
-  border-radius: 2px;
-}
-
+  /* for question and ans  */
+  .postans {
+    font-size: 1.4rem;
+  }
 }
