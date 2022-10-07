@@ -14,41 +14,38 @@
 
 
 
-  <div class="form-div">
+  <div class="form-div row">
 
-    <div class="common-heading-md">
-      Wants to know more!! <br>
-      <span class="common-heading-lg">
-        Have any Questions! <br/> Don't hesitate to message us. 🔜
-      </span>
+    <div class=" col-lg-6 contactright">
+  <h2 class="common-heading-md"> Wants to know more! </h2>
+
+      <p class="common-para ">Have any Questions! Please, Don't hesitate to message us. 🔜 </p>
+
     </div>
 
+    <div class="col-lg-6">
+      <form class="formformessage" action="/CustomerMessage" method="Post">
+        <h2 class="common-heading-md"> Send a Message </h2>
+        <hr>
+        <div class="mb-3">
+          <label for="customerEmail" class="form-label common-heading-sm"> Email address </label>
+          <input type="email" class="form-control contact-input" id="customerEmail" name="customerEmail" aria-describedby="emailHelp" required>
+          <div id="emailHelp" class="form-text"> We'll never share your email with anyone else.</div>
+        </div>
 
-    <form class="formformessage" action="/CustomerMessage" method="Post">
-      <h2 class="common-heading-md"> Send a Message </h2>
-      <hr>
-      <div class="mb-3">
-        <label for="customerEmail" class="form-label common-heading-sm"> Email address </label>
-        <input type="email" class="form-control contact-input" id="customerEmail" name="customerEmail"
-          aria-describedby="emailHelp" required>
-        <div id="emailHelp" class="form-text"> We'll never share your email with anyone else.</div>
-      </div>
+        <div class="mb-3">
+          <label for="customerFullname" class="form-label common-heading-sm"">Full Name </label>
+        <input type=" text" class="form-control contact-input" id="customerFullname" name="customerFullname" aria-describedby="fullname" required>
+        </div>
 
-      <div class="mb-3">
-        <label for="customerFullname" class="form-label common-heading-sm"">Full Name </label>
-        <input type=" text" class="form-control contact-input" id="customerFullname" name="customerFullname" 
-          aria-describedby="fullname" required>
-      </div>
+        <div class="mb-3">
+          <label for="customerDescription" class="form-label common-heading-sm"">Your Messages/Questions</label>
+        <textarea class=" form-control contact-input" id="customerDescription" name="customerDescription" rows="4" required></textarea>
+        </div>
 
-      <div class="mb-3">
-        <label for="customerDescription" class="form-label common-heading-sm"">Your Messages/Questions</label>
-        <textarea class=" form-control contact-input" id="customerDescription" name="customerDescription"
-          rows="4" required></textarea>
-      </div>
-
-      <button type="submit" class="btn btn-lg btn-primary" aria-required="d"> Send >> </button>
-    </form>
-
+        <button type="submit" class="btn btn-lg btn-primary" aria-required="d"> Send >> </button>
+      </form>
+    </div>
 
 
 
