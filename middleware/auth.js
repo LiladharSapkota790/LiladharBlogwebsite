@@ -4,7 +4,7 @@ function authUser(req, res, next) {
       return res.send('you are not allowed ')
     }
 
-   res.render("content");
+   res.render("/");
   }
 
   function authRole(role) {
