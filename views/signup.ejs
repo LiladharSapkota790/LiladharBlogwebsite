@@ -1,0 +1,60 @@
+<%-include("partials/header"); -%>
+
+
+
+
+
+
+
+
+
+<div class="container-fluid-message">
+
+
+
+
+
+  <div class="form-div row">
+
+    <div class=" col-lg-6 contactright">
+      <h2 class="common-heading-md"> Register </h2>
+
+      <p class="common-para "> Register here </p>
+
+    </div>
+
+    <div class="col-lg-6">
+
+
+      <form class="formformessage" action="/register" method="POST" autocomplete="off">
+        <h2 class="common-heading-md"> ODSU </h2>
+        <hr>
+        <div class="mb-3">
+          <label for="email">Email</label>
+          <input type="email" class="form-control common-head-sm" name="username" required>
+          <div id="emailHelp" class="form-text"> We'll never share your email with anyone else.</div>
+        </div>
+
+        <div class="mb-3">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" name="password" required>
+        </div>
+
+        <button type="submit" class="btn btn-lg btn-primary"> Register</button>
+      </form>
+
+
+    </div>
+
+
+
+  </div>
+
+
+
+
+</div>
+
+
+
+<%-include("partials/footer"); -%>

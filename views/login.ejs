@@ -1,0 +1,56 @@
+<%-include("partials/header"); -%>
+
+
+
+
+
+
+
+
+
+<div class="container-fluid-message">
+
+
+
+
+  <div class="form-div row">
+
+    <div class=" col-lg-6 contactright">
+      <h2 class="common-heading-md"> Login </h2>
+    </div>
+
+    <div class="col-lg-6">
+      <form action="/login" method="POST" class="formformessage" autocomplete="off">
+        <hr>
+        <div class="mb-3">
+          <label for="email">Email</label>
+          <input type="email" class="form-control" name="username" required>
+          <div id="emailHelp" class="form-text"> We'll never share your email with anyone else.</div>
+        </div>
+
+        <div class="mb-3">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" name="password" required>
+        </div>
+
+
+        <button type="submit" class="btn btn-lg btn-primary" aria-required="d"> Login </button>
+      </form>
+
+
+    </div>
+
+
+    <a href="/register"> No account? Register now</a>
+
+
+  </div>
+
+
+
+
+</div>
+
+
+
+<%-include("partials/footer"); -%>

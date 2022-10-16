@@ -1,387 +1,187 @@
-//jshint esversion:6
-
-/*create .env file in route directory  */
-
-
-const dotenv= require('dotenv');
+const dotenv = require('dotenv');
 const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
-
 const _ = require("lodash");
-
-
-// using of Router as a middleware
-
-// const router = require('./routes');
-
-
+var logger = require('morgan');
+const passportLocalMongoose = require("passport-local-mongoose");
+const findOrCreate = require('mongoose-findorcreate');
+const connectDB = require("./config/db");
 
 /*now usig mongoose database for myblog*/
 const mongoose = require("mongoose");
-
-const {
-  ObjectId
-} = require('mongodb');
-
-
 dotenv.config();
 
 
+
+
+/*This is for authenication*/
+const bcrypt = require('bcrypt')
+const passport = require('passport')
+const flash = require('express-flash')
+const session = require('express-session')
+const methodOverride = require('method-override')
+
+
+
 const app = express();
-
-mongoose.connect(process.env.Mongo_Cloud, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-
-  })
-  .then( () => {
-    console.log('Connection to the Atlas Cluster is successful!')
-  })
-  .catch( (err) => console.error(err));
-
-
-
-
-
-
-app.set('view engine', 'ejs');
-
 app.use(bodyParser.urlencoded({
   extended: true
 }));
+
+
+app.use(flash());
+
+app.use(logger('dev'));
+app.set('view engine', 'ejs');
+
 app.use(express.json());
 app.use(express.static("public"));
 
-const homeStartingContent = "Welcome to Study Resource Center";
+
+app.use(session({
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: false
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+
+/*connecting with database*/
+connectDB();
+
+const userSchema = new mongoose.Schema({
+  username: String,
+  password: String
+});
+
+userSchema.plugin(passportLocalMongoose);
+userSchema.plugin(findOrCreate);
+
+const User = new mongoose.model("User", userSchema);
+
+passport.use(User.createStrategy());
+
+
+passport.serializeUser(function(user, done) {
+  done(null, user.id);
+});
+
+passport.deserializeUser(function(id, done) {
+  User.findById(id, function(err, user) {
+    done(err, user);
+  });
+});
+
+
+
+// Initialize Passport
+
+const {
+  authUser,
+  checkAuthenticated,
+  checkNotAuthenticated,
+  authRole
+} = require("./middleware/auth");
 
 
 
 
-const postSchema = {
-  topic: String,
-  posttitle: String,
-  postbody: String
-};
-
-const emailSchema = {
-  email: String
-};
-
-const Email = mongoose.model("Email", emailSchema);
 
 
-const Post = mongoose.model("Post", postSchema);
+// Common static pages in homerouter
+app.use('/', require('./routes/homeroute'));
+app.use('/about', require('./routes/homeroute'));
+app.use('/contact', require('./routes/homeroute'));
+app.use('/thanks', require('./routes/homeroute'));
+app.use('/404', require('./routes/homeroute'));
+app.use('/register-form', require('./routes/homeroute'));
+app.use('/admin/allmessages', require('./routes/homeroute'));
+
+/*______________________________________________________________*/
+
+
+/*Pages related to databases*/
+app.use('/content', require('./routes/homeroute'));
+app.use("/topics/related/:topicName", require('./routes/homeroute'));
+
+/*_______________________________________________________________________*/
+
+//for admin purpose
+app.use('/admin/compose', require('./routes/homeroute'));
+app.use('/allsubscriber', require('./routes/homeroute'));
+app.use('/allpostsforadminonly', require('./routes/homeroute'));
+
+
+// account related Pages
+
+/* GET login page. */
+app.get('/login', function(req, res) {
+
+  res.render('login');
+});
+
+
+/* GET Registration Page */
+app.get('/register', function(req, res) {
+  res.render('signup');
+});
 
 
 
 
 
-/*Requiring customerMessagemodel here*/
-const customerMessage = require('./models/customerMessage');
-const Message = require("./models/customerMessage");
 
 
-// Handling post request from customer message
-app.post("/CustomerMessage", (req, res) => {
-  var customermessages = {
-    email2: req.body.customerEmail,
-    fullname: req.body.customerFullname,
-    message: req.body.customerDescription
-  }
-  customerMessage.create(customermessages, (err, item) => {
-    console.log(customermessages);
-    console.log(item + "item");
+app.post('/register', function(req, res) {
+
+    User.register({
+    username: req.body.username
+  }, req.body.password, function(err, user) {
+
     if (err) {
-      console.log(err);
-    } else { // item.save();
-      res.redirect('/thanks');
+      console.log('error registering user' + err);
+      return
+    res.send("Error" + err)
     }
-  });
-});
-
-
-app.get("/admin/allmessages", (req, res) => {
-
-  Message.find({}, (err, foundMessage) => {
-    if (err) {
-      console.log(err);
-    } else {
-
-      res.render("allmessages", {
-        allmessage: foundMessage,
-        messageCount: foundMessage.length
-
-      });
-
-
-    }
-  });
-
-})
-
-
-
-app.get("/", (req, res) => {
-  res.render("index");
-})
-
-
-/*creating note when there are no posts in content*/
-
-app.get("/content", function(req, res) {
-  /*now we are rendering all posts inside home page from database by using modelname.find({},callback fucntion)*/
-  /*Select * from Post;*/
-  Post.find({}, function(err, foundposts) {
-    if (!err) {
-      res.render("home", {
-        Home: homeStartingContent,
-        allposts: foundposts.slice(0, 10)
-      });
-    }
-  })
-});
-
-
-
-
-
-app.get("/about", function(req, res) {
-  res.render("about");
-});
-
-
-
-
-app.get("/contact", function(req, res) {
-  res.render("contact", {
-    contact: "contactContent"
-  });
-});
-
-
-
-
-app.get("/admin/compose", function(req, res) {
-  res.render("compose", {
-    topic: req.body.topic
-  });
-})
-
-
-
-
-app.post("/compose", function(req, res) {
-  const post = new Post({
-    topic: req.body.topic,
-    posttitle: req.body.posttitle,
-    postbody: req.body.postbody
-  });
-  post.save(function(err) {
-    if (!err) {
-      res.redirect("/admin/compose");
-    }
-  });
-  /*  post.save(function(err) {
-      if (!err) {
-        res.redirect("/compose");
-      }
-    });*/
-});
-
-
-
-
-
-app.get("/topics/related/:topicName", function(req, res) {
-  console.log(req.params.topicName);
-  const requestedtopicName = _.capitalize(req.params.topicName);
-  console.log(requestedtopicName);
-  Post.find({
-    topic: requestedtopicName
-  }, function(err, foundtopic) {
-    console.log(foundtopic);
-    if (err) {
-      console.log(err);
-    } else {
-      if (!foundtopic) {
-        console.log("doesnot exists");
-        res.redirect("/404");
-      } else if (foundtopic.length === 0) {
-        res.render("nocontent", {
-          topic: "No post Found",
-          allposts: "No Post related to this topic available"
-        });
-      } else {
-        res.render("specifictopic", {
-          topic: foundtopic.topic,
-          allposts: foundtopic
-        });
-      }
-    }
-  })
-});
-
-
-
-
-
-/*error page*/
-app.get("/404", (req, res) => {
-  res.render("404");
-})
-
-
-
-
-/*for posts*/
-app.get("/allposts/:postId", function(req, res) {
-  const requestedPostId = req.params.postId;
-  /*const requestedPostId = req.params.postId.toString();*/
-  console.log(requestedPostId + "tt");
-  Post.findOne({
-    _id: requestedPostId
-  }, function(err, foundpost) {
-    if (err) {
-      console.log(err);
-    } else {
-      res.render("post", {
-        posttitle: foundpost.posttitle,
-        postbody: foundpost.postbody
-      });
-      console.log(foundpost + " err From posts/route");
-    }
-  });
-});
-
-
-
-
-
-
-app.post("/delete", (req, res) => {
-  console.log(req.body);
-  const checkedItemid = req.body.checkboxfordelete;
-  const checkItemName = req.body.checkboxforedit;
-  Post.findByIdAndRemove(checkedItemid, function(err) {
-    if (err) {
-      console.log(err);
-    } else {
-      console.log("Deleted Successfully");
-    }
-  });
-  res.redirect("/content");
-});
-
-
-
-
-
-
-app.post("/ournewsletter", (req, res) => {
-  const email = req.body.email;
-  console.log(email);
-  const email1 = new Email({
-    email: email
-  });
-  email1.save();
-  res.redirect("/thanks");
-});
-
-
-
-
-
-app.get("/thanks", function(req, res) {
-  res.render("thanks");
-});
-
-
-
-app.get("/AdminDashboard", (req, res) => {
-
-  var postQuery;
-  Post.find({}, function(err, foundposts) {
-    if (err) {
-      console.log(err);
-    }
-    postQuery = foundposts;
-    postCount = foundposts.length;
-    /*console.log(foundposts);*/
-  });
-
-  var messageQuery;
-  Message.find({}, (err, foundMessages) => {
-    if (err) {
-      console.log(err);
-    }
-    messageQuery = foundMessages;
-    messageCount = foundMessages.length;
-  });
-
-  console.log("Loggin form admin route " + postQuery);
-  Email.find({},
-    function(err, foundemails) {
-      countEmails = foundemails.length;
-      console.log(countEmails);
-      if (!err) {
-        res.render("admindashboard1", {
-          emails: foundemails,
-          allposts: postQuery,
-          postCount: postCount,
-          countEmails: countEmails,
-          messageCount: messageCount
-
-        });
-      }
-    })
-});
-
-
-
-
-
-/*This is to get the link of all clients*/
-app.get("/allsubscriber", (req, res) => {
-  Email.find({},
-    function(err, foundemails) {
-      if (!err) {
-        res.render("subscriber", {
-          emails: foundemails
-        });
-      }
+    
+    passport.authenticate('local')(req, res, function() {
+      res.redirect("/content");
     });
-});
-
-
-
-
-/*This is to delete and manage the posts*/
-app.get("/allpostsforadminonly", (req, res) => {
-  Post.find({}, function(err, foundposts) {
-    if (err) {
-      console.log(err);
-    } else {
-      res.render("allpostsadmin", {
-        allposts: foundposts
-      });
-    }
   });
 });
 
 
+app.post("/login", function(req, res) {
+
+  const user = new User({
+  username: req.body.username,
+    password: req.body.password
+  });
+
+  req.login(user, function(err) {
+    if (err) {
+      console.log(err);
+
+    } else {
+      passport.authenticate("local")(req, res, function() {
+        res.redirect("/content");
+      })
+    }
+  })
 
 
+})
 
-
-
-
-
-/*for contributor*/
-app.get("/register-form", (req, res) => {
-  res.render("registerformforcontributor");
+/* Handle Logout */
+app.get('/signout', function(req, res, next) {
+  req.logout(function(err) {
+    if (err) { return next(err); }
+    res.redirect('/');
+  });
 });
-
 
 
 
@@ -389,8 +189,6 @@ app.get("/register-form", (req, res) => {
 app.get("*", (req, res) => {
   res.render("404");
 });
-
-
 
 
 app.listen(process.env.PORT || 6790, function() {

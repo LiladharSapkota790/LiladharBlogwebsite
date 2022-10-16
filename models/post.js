@@ -1,9 +1,6 @@
 
 const mongoose = require("mongoose");
 
-
-
-
 const postSchema = {
     topic: String,
     posttitle: String,

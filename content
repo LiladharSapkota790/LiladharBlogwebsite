@@ -40,3 +40,8 @@ res.render("specifictopic", {
   topic: "No post Found",
   allposts: "No Post related to this topic available"
 });
+
+
+<% if (messages.error) { %>
+  <%= messages.error %>
+<% } %>
