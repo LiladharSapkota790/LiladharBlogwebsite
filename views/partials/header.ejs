@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
 
+<link rel="shortcut icon" href="/images/brandnewlogofinal.png">
   <!-- fontawesome -->
   <script src="https://use.fontawesome.com/98fb124257.js"></script>
 
@@ -44,16 +45,34 @@
       <li id="about"><a href="about">About </a></li>
       <li id="contact"><a href="contact">Contact </a></li>
 
+
+
+
+
       <% let myname = "Lila" %>
       <% if(myname === "Lila"){ %>
       <li id="about"><a href="login">Login </a></li>
       <li id="contact"><a href="register"> Sign Up</a></li>
-        <li id="signout">  <a class="btn  btn-lg" href="/signout" role="button">Log Out</a> </li>
+
       <%} %>
       <li> <a href="/register-form" class="btn  btn-sm btn-join"> Join & Contribute </a> </li>
+
+      <% if(message.success){ %>
+      <li id="signout"> <a class="btn  btn-sm red " href="/signout" role="button">Log Out</a> </li>
+      <% } %>
     </ul>
   </div>
 
 </nav>
+
+
+<% if(message.success){ %>
+<div class="container-fluid">
+  <div class="alert alert-success red" role="alert">
+    <%= message.success %>
+  </div>
+
+</div>
+<% } %>
 
 <body>

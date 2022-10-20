@@ -13,6 +13,8 @@ const Email= require('../models/email');
 /*this is handling all the messges */
 const Message = require('../models/customerMessage');
 
+const User= require('../models/user');
+
 /*<><><><>< static pages <><><><><*/
 
 router.get("/", (req, res) => {
@@ -56,6 +58,8 @@ router.get("/register-form", (req, res) => {
 
 /*creating note when there are no posts in content*/
 router.get("/content", function(req, res) {
+
+
   Post.find({}, function(err, foundposts) {
     if (!err) {
       res.render("home", {
@@ -202,7 +206,7 @@ router.post("/CustomerMessage", (req, res) => {
 /*===========================strictly for admin only ============*/
 
 
-router.get("/AdminDashboard", authUser, (req, res) => {
+router.get("/admindashboard", (req, res) => {
 
   var postQuery;
   Post.find({}, function(err, foundposts) {
@@ -254,7 +258,7 @@ router.get("/AdminDashboard", authUser, (req, res) => {
 
 
 
-router.get("/admin/compose", authUser, function(req, res) {
+router.get("/admin/compose", function(req, res) {
   res.render("compose", {
     topic: req.body.topic
   });

@@ -3,7 +3,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const _ = require("lodash");
-var logger = require('morgan');
+const logger = require('morgan');
 const passportLocalMongoose = require("passport-local-mongoose");
 const findOrCreate = require('mongoose-findorcreate');
 const connectDB = require("./config/db");
@@ -44,6 +44,15 @@ app.use(session({
   resave: false,
   saveUninitialized: false
 }));
+
+
+app.use(function(req, res, next){
+    res.locals.message = req.flash();
+    next();
+});
+
+
+
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -126,7 +135,7 @@ app.get('/login', function(req, res) {
 
 /* GET Registration Page */
 app.get('/register', function(req, res) {
-  res.render('signup');
+  res.render('signup', {message: ["success"]});
 });
 
 
@@ -137,6 +146,7 @@ app.get('/register', function(req, res) {
 
 app.post('/register', function(req, res) {
 
+
     User.register({
     username: req.body.username
   }, req.body.password, function(err, user) {
@@ -144,11 +154,12 @@ app.post('/register', function(req, res) {
     if (err) {
       console.log('error registering user' + err);
       return
-    res.send("Error" + err)
+    res.send("Error" + err);
     }
-    
+
     passport.authenticate('local')(req, res, function() {
-      res.redirect("/content");
+       req.flash('success', 'You are successfully registered! Now login here');
+      res.redirect("/login");
     });
   });
 });
@@ -167,7 +178,10 @@ app.post("/login", function(req, res) {
 
     } else {
       passport.authenticate("local")(req, res, function() {
-        res.redirect("/content");
+         req.flash('success', ' Welcome ! Log in successful');
+  res.render('/userDashboard', {
+    user: req.user
+  });
       })
     }
   })
@@ -179,11 +193,16 @@ app.post("/login", function(req, res) {
 app.get('/signout', function(req, res, next) {
   req.logout(function(err) {
     if (err) { return next(err); }
+       req.flash('success', ' You are logged out successfully!');
     res.redirect('/');
   });
 });
 
 
+
+app.get('/userDashboard', (req,res) => {
+  res.render('userDashboard');
+})
 
 
 app.get("*", (req, res) => {

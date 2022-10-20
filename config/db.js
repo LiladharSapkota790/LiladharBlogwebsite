@@ -10,7 +10,7 @@ const connectDB = async () => {
     console.log("Connection to the Atlas Cluster is successful! 👍");
 
   } catch (err) {
-    console.log(err);
+    console.log("database errrorr!! " + err);
   }
 
 

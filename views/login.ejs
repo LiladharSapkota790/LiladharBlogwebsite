@@ -10,7 +10,11 @@
 
 <div class="container-fluid-message">
 
-
+  <% if(message.success){ %>
+  <div class="alert alert-success" role="alert">
+      <%= message.success %>
+  </div>
+  <% } %>
 
 
   <div class="form-div row">
