@@ -137,7 +137,7 @@ app.get('/login', function(req, res) {
 app.get('/register', function(req, res) {
   res.render('signup', {
     message: ["success"],
-    err:""
+    err: ""
   });
 });
 
@@ -156,9 +156,11 @@ app.post('/register', function(req, res) {
 
     if (err) {
       console.log('error registering user' + err);
+
       res.render('signup', {
         err: err
       });
+      return;
     }
 
     passport.authenticate('local')(req, res, function() {
@@ -179,6 +181,7 @@ app.post("/login", function(req, res) {
   req.login(user, function(err) {
     if (err) {
       console.log(err);
+      return;
 
     } else {
       passport.authenticate("local")(req, res, function() {
@@ -206,7 +209,7 @@ app.get('/signout', function(req, res, next) {
 
 
 
-app.get('/userDashboard', (req, res) => {
+app.get('/userprofile', (req, res) => {
   res.render("userDashboard");
 });
 
