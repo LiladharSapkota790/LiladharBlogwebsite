@@ -1,11 +1,11 @@
 function authUser(req, res, next) {
-    if (req.user == null) {
+    if (req.user === null) {
+      console.log(req.user);
       res.status(403)
       return res.send('you are not allowed ')
     }
 
-   res.render("/");
-  }
+   res.render("admindashboard1");  }
 
   function authRole(role) {
     return (req, res, next) => {

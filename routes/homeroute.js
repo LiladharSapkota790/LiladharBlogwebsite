@@ -206,7 +206,7 @@ router.post("/CustomerMessage", (req, res) => {
 /*===========================strictly for admin only ============*/
 
 
-router.get("/admindashboard", (req, res) => {
+router.get("/admindashboard", authUser, (req, res) => {
 
   var postQuery;
   Post.find({}, function(err, foundposts) {

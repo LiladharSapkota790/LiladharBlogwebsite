@@ -46,9 +46,9 @@ app.use(session({
 }));
 
 
-app.use(function(req, res, next){
-    res.locals.message = req.flash();
-    next();
+app.use(function(req, res, next) {
+  res.locals.message = req.flash();
+  next();
 });
 
 
@@ -135,7 +135,10 @@ app.get('/login', function(req, res) {
 
 /* GET Registration Page */
 app.get('/register', function(req, res) {
-  res.render('signup', {message: ["success"]});
+  res.render('signup', {
+    message: ["success"],
+    err:""
+  });
 });
 
 
@@ -147,18 +150,19 @@ app.get('/register', function(req, res) {
 app.post('/register', function(req, res) {
 
 
-    User.register({
+  User.register({
     username: req.body.username
   }, req.body.password, function(err, user) {
 
     if (err) {
       console.log('error registering user' + err);
-      return
-    res.send("Error" + err);
+      res.render('signup', {
+        err: err
+      });
     }
 
     passport.authenticate('local')(req, res, function() {
-       req.flash('success', 'You are successfully registered! Now login here');
+      req.flash('success', 'You are successfully registered! Now login here');
       res.redirect("/login");
     });
   });
@@ -168,7 +172,7 @@ app.post('/register', function(req, res) {
 app.post("/login", function(req, res) {
 
   const user = new User({
-  username: req.body.username,
+    username: req.body.username,
     password: req.body.password
   });
 
@@ -178,10 +182,10 @@ app.post("/login", function(req, res) {
 
     } else {
       passport.authenticate("local")(req, res, function() {
-         req.flash('success', ' Welcome ! Log in successful');
-  res.render('/userDashboard', {
-    user: req.user
-  });
+        req.flash('success', ' Welcome ! Log in successful');
+        res.render('userDashboard', {
+          user: req.user.username
+        });
       })
     }
   })
@@ -192,17 +196,19 @@ app.post("/login", function(req, res) {
 /* Handle Logout */
 app.get('/signout', function(req, res, next) {
   req.logout(function(err) {
-    if (err) { return next(err); }
-       req.flash('success', ' You are logged out successfully!');
+    if (err) {
+      return next(err);
+    }
+    req.flash('success', ' You are logged out successfully!');
     res.redirect('/');
   });
 });
 
 
 
-app.get('/userDashboard', (req,res) => {
-  res.render('userDashboard');
-})
+app.get('/userDashboard', (req, res) => {
+  res.render("userDashboard");
+});
 
 
 app.get("*", (req, res) => {
