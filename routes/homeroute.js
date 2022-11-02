@@ -1,24 +1,19 @@
 const express = require('express');
 const router = express.Router();
 const _ = require("lodash");
-const {
-  authUser,
-  authRole,
-  checkAuthenticated,
-  checkNotAuthenticated
-} = require('../middleware/auth');
+const {authUser, authRole, checkAuthenticated, checkNotAuthenticated} = require('../middleware/auth');
 
 
 /*Requiring post and email model here */
 
-const Post = require('../models/post');
+const Post= require('../models/post');
 
-const Email = require('../models/email');
+const Email= require('../models/email');
 
 /*this is handling all the messges */
 const Message = require('../models/customerMessage');
 
-const User = require('../models/user');
+const User= require('../models/user');
 
 /*<><><><>< static pages <><><><><*/
 
@@ -138,6 +133,14 @@ router.get("/topics/related/:topicName", function(req, res) {
 
 
 
+
+
+
+
+
+
+
+
 router.post("/delete", checkAuthenticated, authUser, authRole, (req, res) => {
   console.log(req.body);
   const checkedItemid = req.body.checkboxfordelete;
@@ -197,6 +200,9 @@ router.post("/CustomerMessage", checkAuthenticated, authUser, authRole, (req, re
 
 
 
+
+
+
 /*===========================strictly for admin only ============*/
 
 
@@ -206,7 +212,7 @@ router.get("/admindashboard", checkAuthenticated, authUser, authRole, (req, res)
   Post.find({}, function(err, foundposts) {
     if (err) {
       console.log(err);
-      return;
+          return;
     }
 
     postQuery = foundposts;
@@ -218,7 +224,7 @@ router.get("/admindashboard", checkAuthenticated, authUser, authRole, (req, res)
   Message.find({}, (err, foundMessages) => {
     if (err) {
       console.log(err);
-      return;
+        return;
     }
     messageQuery = foundMessages;
     messageCount = foundMessages.length;
@@ -250,6 +256,11 @@ router.get("/admindashboard", checkAuthenticated, authUser, authRole, (req, res)
 
 
 
+
+
+
+
+
 router.get("/admin/compose", checkAuthenticated, authUser, authRole, function(req, res) {
   res.render("compose", {
     topic: req.body.topic
@@ -270,7 +281,7 @@ router.get("/admin/allmessages", checkAuthenticated, authUser, authRole, (req, r
 })
 
 /*This is to get the link of all clients*/
-router.get("/allsubscriber", checkAuthenticated, authUser, authRole, (req, res) => {
+router.get("/allsubscriber", (req, res) => {
   Email.find({},
     function(err, foundemails) {
       if (!err) {
@@ -285,7 +296,7 @@ router.get("/allsubscriber", checkAuthenticated, authUser, authRole, (req, res) 
 
 
 /*This is to delete and manage the posts*/
-router.get("/allpostsforadminonly", checkAuthenticated, authUser, authRole, (req, res) => {
+router.get("/allpostsforadminonly", (req, res) => {
   Post.find({}, function(err, foundposts) {
     if (err) {
       console.log(err);

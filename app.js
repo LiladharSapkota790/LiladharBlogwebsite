@@ -187,7 +187,9 @@ app.post("/login", function(req, res) {
       passport.authenticate("local")(req, res, function() {
         req.flash('success', ' Welcome ! Log in successful');
         res.render('userDashboard', {
-          user: req.user.username
+          userdetails:req.user,
+          user: req.user.username,
+          userrole: req.user.role
         });
       })
     }

@@ -14,7 +14,8 @@ function authUser(req, res, next) {
         return res.send('Not allowed')
       }
 
-      next()
+  res.send("Else");
+
     }
   }
 
