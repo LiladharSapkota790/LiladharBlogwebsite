@@ -1,17 +1,60 @@
-
 <%-include("partials/header"); -%>
 
 <div class="container-fluid">
-  <h3> Welcome </h3>
 
-  <h1> userdetails : <%= userdetails %></h1>
-  <strong> <%= user %>   </strong>
+  <h2 class="common-heading-md"> Welcome </h2>
 
-  <h3>User role: <%= userrole %></h3>
+
+  <div class="row profile">
+    <div class="col-md-3">
+      <div class="profile-sidebar">
+        <!-- SIDEBAR USERPIC -->
+        <div class="profile-userpic">
+          <img src="https://media-exp1.licdn.com/dms/image/C5603AQExTg_cUfQsPw/profile-displayphoto-shrink_800_800/0/1637221744096?e=1672876800&v=beta&t=FiBlsdscTnZvhyL6S5cUYaITy56538ASE4NyEmcttSE" class="img-responsive" alt="">
+        </div>
+        <!-- END SIDEBAR USERPIC -->
+        <!-- SIDEBAR USER TITLE -->
+        <div class="profile-usertitle">
+          <div class="profile-usertitle-name common-para red">
+            <%= user %>
+          </div>
+          <div class="profile-usertitle-job">
+            Developer
+          </div>
+        </div>
+        <!-- END SIDEBAR USER TITLE -->
+        <!-- SIDEBAR BUTTONS -->
+        <div class="profile-userbuttons">
+
+          <button type="button" class="btn btn-danger btn-sm">Message</button>
+        </div>
+        <!-- END SIDEBAR BUTTONS -->
+        <!-- SIDEBAR MENU -->
+        <div class="profile-usermenu">
+          <ul class="nav">
+            <li class="active">
+              <a href="/allpostsforadminonly">
+                <i class="glyphicon glyphicon-home"></i>
+                Posts </a>
+            </li>
+            <li>
+              <a href="/login">
+                <i class="glyphicon glyphicon-user"></i>
+                Account Settings </a>
+            </li>
+
+
+                <li id="signout" "> <a class="  btn-danger " href="/signout" role="button">Log Out</a> </li>
+          </ul>
+        </div>
+        <!-- END MENU -->
+      </div>
+    </div>
+
+    </div>
+  </div>
+
 </div>
-
-
-
 
 
 

@@ -1,13 +1,6 @@
 <%-include("partials/header"); -%>
 
 
-
-
-
-
-
-
-
 <div class="container-fluid-message">
 
   <% if(message.success){ %>
@@ -19,12 +12,17 @@
 
   <div class="form-div row">
 
-    <div class=" col-lg-6 contactright">
+    <div class=" col-lg-4 contactright">
       <h2 class="common-heading-md"> Login </h2>
+
     </div>
 
-    <div class="col-lg-6">
+
+
+    <div class="col-lg-4">
       <form action="/login" method="POST" class="formformessage" autocomplete="off">
+          <h3 class="common-heading-md">Our Daily Study Update </h3>
+
         <hr>
         <div class="mb-3">
           <label for="email">Email</label>
@@ -37,15 +35,15 @@
           <input type="password" class="form-control" name="password" required>
         </div>
 
-
         <button type="submit" class="btn btn-lg btn-primary" aria-required="d"> Login </button>
       </form>
 
-
     </div>
 
+<div class="col-lg-4">
+    <a href="/register" class="btn btn-sm btn-info"> No account? Register now</a>
+</div>
 
-    <a href="/register"> No account? Register now</a>
 
 
   </div>

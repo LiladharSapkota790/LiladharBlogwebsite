@@ -1,48 +1,59 @@
 function authUser(req, res, next) {
-    if (req.user === null) {
-      console.log(req.user);
-      res.status(403)
-      return res.send('you are not allowed ')
-    }
-
-   res.render("admindashboard1");  }
-
-  function authRole(role) {
-    return (req, res, next) => {
-      if (!req.user.role === 2) {
-        res.status(401)
-        return res.send('Not allowed')
-      }
-
-  res.send("Else");
-
-    }
+  if (req.user === null) {
+    console.log(req.user);
+    res.status(403)
+    return res.send('you are not allowed ')
   }
 
+  res.render("admindashboard1");
+}
 
-
-  function checkAuthenticated(req, res, next) {
-    if (req.isAuthenticated()) {
-      return next()
+function authRole(role) {
+  return (req, res, next) => {
+    if (!req.user.role === 2) {
+      res.status(401)
+      return res.send('Not allowed')
     }
 
-    res.redirect('/login')
+    res.send("Else");
+
+  }
+}
+
+
+
+function checkAuthenticated(req, res, next) {
+  if (req.isAuthenticated()) {
+    return next()
   }
 
-  function checkNotAuthenticated(req, res, next) {
-    if (req.isAuthenticated()) {
-      return res.redirect('/')
-    }
-    next()
+  res.redirect('/login')
+}
+
+function checkNotAuthenticated(req, res, next) {
+  if (req.isAuthenticated()) {
+    return res.redirect('/')
   }
+  next()
+}
 
-
-
-
-
-
-
-  module.exports = {
-    authUser,checkAuthenticated, checkNotAuthenticated,
-    authRole
+function adminUser(req, res, next) {
+  if (req.isAuthenticated()) {
+    return next();
   }
+  req.flash('error_msg', "You are not allowed");
+  res.redirect('/');
+}
+
+
+
+
+
+
+module.exports = {
+  authUser,
+  checkAuthenticated,
+  checkNotAuthenticated,
+  authRole,
+  adminUser
+}

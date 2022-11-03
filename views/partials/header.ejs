@@ -20,6 +20,7 @@
   <link rel="stylesheet" href="/css/dashboard.css">
   <link rel="stylesheet" href="/css/index.css">
   <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/userprofile.css" />
 
 
   <script src="/js/index.js" defer> </script>
@@ -46,18 +47,9 @@
       <li id="contact"><a href="contact">Contact </a></li>
 
 
-
-
-
-      <% let myname = "Lila" %>
-      <% if(myname === "Lila"){ %>
-      <li id="about"><a href="login">Login </a></li>
-      <li id="contact"><a href="register"> Sign Up</a></li>
-
-      <%} %>
       <li> <a href="/register-form" class="btn  btn-sm btn-join"> Join & Contribute </a> </li>
 
-      <% if(message.successlogin){ %>
+      <% if(message.success || message.userloggedin){ %>
       <li id="signout"> <a class="btn  btn-sm red " href="/signout" role="button">Log Out</a> </li>
       <% } %>
     </ul>

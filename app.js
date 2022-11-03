@@ -92,7 +92,8 @@ const {
   authUser,
   checkAuthenticated,
   checkNotAuthenticated,
-  authRole
+  authRole,
+  adminUser
 } = require("./middleware/auth");
 
 
@@ -134,7 +135,7 @@ app.get('/login', function(req, res) {
 
 
 /* GET Registration Page */
-app.get('/register', function(req, res) {
+app.get('/register', adminUser,  function(req, res) {
   res.render('signup', {
     message: ["success"],
     err: ""
@@ -148,7 +149,6 @@ app.get('/register', function(req, res) {
 
 
 app.post('/register', function(req, res) {
-
 
   User.register({
     username: req.body.username
@@ -186,11 +186,7 @@ app.post("/login", function(req, res) {
     } else {
       passport.authenticate("local")(req, res, function() {
         req.flash('success', ' Welcome ! Log in successful');
-        res.render('userDashboard', {
-          userdetails:req.user,
-          user: req.user.username,
-          userrole: req.user.role
-        });
+        res.render("admindashboard1");
       })
     }
   })
@@ -211,8 +207,12 @@ app.get('/signout', function(req, res, next) {
 
 
 
-app.get('/userprofile', (req, res) => {
-  res.render("userDashboard");
+app.get('/users/profile', checkAuthenticated, (req, res) => {
+  res.render("userDashboard", {
+    userdetails: "",
+    user: "",
+    userrole: ""
+  });
 });
 
 
