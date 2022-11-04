@@ -557,4 +557,31 @@ img {
   }
 
 
+/*This is for admin dashboard*/
+
+.main{
+  margin-left: 40px;
+}
+.dashboardnav {
+    height: 100%;
+    /* width: 190px; */
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    /* padding-top: 15px; */
+    /* padding-bottom: 15px; */
+    border: 0;
+    border-radius: 0;
+    margin-bottom: 0;
+    background-color: #357EC7;
+}
+.dashboard-heading {
+    margin-top: -4%;
+    margin-bottom: 2%;
+    margin-left: 10%;
+}
+
+
+
 }
