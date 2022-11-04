@@ -179,7 +179,9 @@ router.post("/CustomerMessage", (req, res) => {
     fullname: req.body.customerFullname,
     message: req.body.customerDescription
   }
-  customerMessage.create(customermessages, (err, item) => {
+
+  console.log(customermessages);
+Message.create(customermessages, (err, item) => {
     console.log(customermessages);
     console.log(item + "item");
     if (err) {
