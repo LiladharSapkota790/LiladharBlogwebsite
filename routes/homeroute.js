@@ -173,7 +173,7 @@ router.post("/compose", checkAuthenticated, authUser, authRole, function(req, re
 
 
 /*To handle a contact message */
-router.post("/CustomerMessage", checkAuthenticated, authUser, authRole, (req, res) => {
+router.post("/CustomerMessage", (req, res) => {
   var customermessages = {
     email2: req.body.customerEmail,
     fullname: req.body.customerFullname,

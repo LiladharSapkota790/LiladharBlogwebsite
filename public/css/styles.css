@@ -237,6 +237,13 @@ header {
   padding: 4% 12%;
 }
 
+.contactright .phone{
+
+  border-radius: 100%;
+  width: 30%;
+  margin-bottom: 3%;
+}
+
 .form-div {
   padding: 5%;
   display: flex;
