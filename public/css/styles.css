@@ -396,7 +396,7 @@ img {
   }
 
   .container-fluid-landing {
-    height: 56vh;
+    height: 70vh;
     background-image: url(/images/girlsstudying.jpg);
     /* background-position: bottom; */
     background-repeat: no-repeat;
@@ -453,8 +453,7 @@ img {
   }
 
   .ournewsletter {
-    margin-bottom: 6%;
-    position: relative;
+  margin-top: 15%;
   }
 
   .home-email-input {
