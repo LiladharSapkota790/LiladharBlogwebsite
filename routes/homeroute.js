@@ -76,6 +76,23 @@ router.get("/content", function(req, res) {
 });
 
 
+/*getting all in one */
+
+router.get("/allpostsinone", function(req, res) {
+
+
+  Post.find({}, function(err, foundposts) {
+    if (!err) {
+      res.render("allposts", {
+        allposts: foundposts
+      });
+    }
+  })
+});
+
+
+
+
 
 /*for posts*/
 router.get("/allposts/:postId", function(req, res) {
@@ -181,7 +198,7 @@ router.post("/CustomerMessage", (req, res) => {
   }
 
   console.log(customermessages);
-Message.create(customermessages, (err, item) => {
+  Message.create(customermessages, (err, item) => {
     console.log(customermessages);
     console.log(item + "item");
     if (err) {

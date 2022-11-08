@@ -196,7 +196,7 @@ header {
 }
 
 .container-fluid-home {
-  padding: 3% 17%;
+  padding: 7% 17%;
 }
 
 .home-container {
@@ -346,6 +346,33 @@ img {
 .social-media:hover {
   color: rgb(255, 0, 0);
 }
+
+
+
+/*style for allinone page*/
+
+.showmore{
+
+display: none;
+}
+
+
+
+.showmoreafter{
+  display: block;
+
+}
+
+
+
+
+
+
+
+
+
+
+
 
 /* for mobile and small devices */
 @media only screen and (max-width: 900px) {

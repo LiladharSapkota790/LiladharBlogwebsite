@@ -3,22 +3,18 @@
 <h2 class="common-heading-sm"> Our ournewsletter Subscriber </h2>
 
 
-<div class="emails"> 
+<div class="emails">
   <% emails.forEach(function(email){ %>
   <div class="col-lg-4 eachemail">
     <table>
-      <tr> 
-     <th> S:N. </th>
-        <td class="customeremail">   <%=email.email %> </td>
-   
-    </tr> </table>
-    
+      <tr>
+        <th> S:N. </th>
+        <td class="customeremail"> <%=email.email %> </td>
+
+      </tr>
+    </table>
+
   </div>
   <% }) %>
 
 </div>
-
-  <button type="button" name="emailhidebutton" id="emailhidebutton" class="btn btn-lg btn-primary emailbtnhide"> Hide Content</button>
-</div>
-
-

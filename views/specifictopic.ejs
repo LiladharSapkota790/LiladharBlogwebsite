@@ -2,19 +2,19 @@
 
 
 <div class="container-fluid-home">
-    <% allposts.forEach(function(post){ %>
-    <div class=" eachpost">
-      <p> <%=post.topic %></p>
-      <h3 class="common-heading-forquestion"> <strong> Q.N:</strong> <%=post.posttitle%> </h3>
-   
-    
-      <p class="postans"> <%=post.postbody%> </p>
-     </div>
-    <% }) %>
+  <% allposts.forEach(function(post){ %>
+  <div class=" eachpost">
+    <p> <%=post.topic %></p>
+    <h3 class="common-heading-forquestion"> <strong> Q.N:</strong> <%=post.posttitle%> </h3>
 
 
-    <a href="/content" class="btn btn-secondary btn-lg"> Go Back </a>
-  </form>
+    <p class="postans"> <%=post.postbody%> </p>
+  </div>
+  <% }) %>
+
+
+  <a href="/allpostsinone" class="btn btn-secondary btn-lg"> Go Back </a>
+
 
 
 

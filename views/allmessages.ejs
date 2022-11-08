@@ -6,20 +6,15 @@
 
 <h2 class="common-heading-sm"> All Messages</h2>
 
-<div class="messages">  
-    <% allmessage.forEach(  message =>{ %>      
-    <div class=" message-card ">    
+<div class="messages">
+    <% allmessage.forEach(  message =>{ %>
+    <div class=" message-card ">
     <h6> <strong>  FullName: </strong> <%=message.fullname %> </h6>
-    <p> <strong>Email:  </strong><%=message.email2 %> </p>   
+    <p> <strong>Email:  </strong><%=message.email2 %> </p>
     <details> <summary> <strong>Messages </strong>  </summary> <%=message.message %> </details>
     <input type="checkbox" id="seenchecked" onclick="changeColor()"> Seen
-   
+
 </div>
 <% }) %>
 
 </div>
-</div>
-
-
-
-

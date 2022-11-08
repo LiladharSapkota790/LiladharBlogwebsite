@@ -1,0 +1,80 @@
+<%-include("partials/header"); -%>
+
+
+<div class="container-fluid-home">
+
+
+  <% allposts.forEach(function(post, idx){ %>
+
+
+  <% if (idx < 7 ) { %>
+  <div class="question-div home-container">
+    <a href="/allposts/<%=post._id%>" class="question-link" <h6> <strong> Q.N:</strong> <%=post.posttitle%> </h6> </a>
+  </div>
+
+  <div class="answer">
+    <p hidden> <%=post.postbody%> </p>
+  </div>
+  <% } %>
+  <% }); %>
+
+
+  <% if (allposts.length > 1 ) { %>
+  <a class="btn btn-info shownext" onclick="shownext()"> Show More</a>
+
+
+
+
+
+  <div class="showmore" id="myshowmorediv">
+    <% allposts.forEach(function(post, idx){ %>
+
+    <% if (idx > 8 ) { %>
+    <div class="question-div home-container">
+      <a href="/allposts/<%=post._id%>" class="question-link" <h6> <strong> Q.N:</strong> <%=post.posttitle%> </h6> </a>
+    </div>
+
+    <div class="answer">
+      <p hidden> <%=post.postbody%> </p>
+    </div>
+    <% } %>
+
+
+
+    <% }); %>
+    <%   } %>
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+<script type="text/javascript">
+  function shownext() {
+    var showcontent = document.getElementById("myshowmorediv");
+    var shownext = document.getElementsByClassName("shownext");
+
+
+    showcontent.classList.remove("showmore");
+      shownext.classList.add("showmore");
+
+
+  }
+</script>
