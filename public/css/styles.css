@@ -193,6 +193,7 @@ header {
   text-align: center;
   border-radius: 4px;
   color: #fff;
+  margin-bottom: 5%;
 }
 
 .container-fluid-home {
@@ -352,7 +353,6 @@ img {
 /*style for allinone page*/
 
 .showmore{
-
 display: none;
 }
 
