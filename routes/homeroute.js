@@ -184,7 +184,7 @@ router.post("/compose", checkAuthenticated, function(req, res) {
   post.save(function(err) {
     if (!err) {
       console.log("Created Successfully");
-        req.flash('success', 'Post created Successfully');
+      req.flash('success', 'Post created Successfully');
       res.redirect("/admin/compose");
     }
   });
@@ -300,17 +300,54 @@ router.get("/admin/allmessages", checkAuthenticated, (req, res) => {
   });
 })
 
-/*This is to get the link of all clients*/
-router.get("/allsubscriber", checkAuthenticated, (req, res) => {
-  Email.find({},
-    function(err, foundemails) {
-      if (!err) {
-        res.render("subscriber", {
-          emails: foundemails
-        });
-      }
+
+
+
+router.route('/subscriber')
+
+  .get( checkAuthenticated, ( req, res) => {
+    Email.find({},
+      function(err, foundemails) {
+        if (!err) {
+          res.render("subscriber", {
+            emails: foundemails
+          });
+        }
+      });
+  })
+
+  .post((req, res) => {
+    const email = req.body.email;
+    console.log(email);
+    const email1 = new Email({
+      email: email
     });
+    email1.save();
+    res.redirect("/thanks");
+  })
+
+
+
+
+
+router.post("/subscriber/delete", checkAuthenticated, (req,res) => {
+  console.log(req.body);
+
+  const checkItemId= req.body.checkboxofsubscriberdelete;
+
+  Email.findByIdAndRemove(checkItemId, function(err){
+    if (err) {
+      console.log(err)
+    }
+    else{
+    req.flash("success", "deleted");
+
+    }
+  });
+  return
+  res.redirect("/subscriber");
 });
+
 
 
 
@@ -329,17 +366,8 @@ router.get("/allpostsforadminonly", adminUser, (req, res) => {
 });
 
 
-/*This is a newsletter route*/
 
-router.post("/ournewsletter", (req, res) => {
-  const email = req.body.email;
-  console.log(email);
-  const email1 = new Email({
-    email: email
-  });
-  email1.save();
-  res.redirect("/thanks");
-});
+
 
 
 

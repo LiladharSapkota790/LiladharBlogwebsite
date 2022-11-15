@@ -4,17 +4,25 @@
 
 
 <div class="emails">
-  <% emails.forEach(function(email){ %>
-  <div class="col-lg-4 eachemail">
-    <table>
-      <tr>
-        <th> S:N. </th>
-        <td class="customeremail"> <%=email.email %> </td>
 
-      </tr>
-    </table>
+  <form class="" action="/subscriber/delete" method="post">
 
-  </div>
-  <% }) %>
 
+    <% emails.forEach(function(email){ %>
+    <div class="col-lg-4 eachemail">
+      <table>
+        <tr>
+          <th> S:N. </th>
+          <td class="customeremail"> <%=email.email %> </td>
+
+        </tr>
+      </table>
+
+          <button type="checkbox" name="checkboxofsubscriberdelete" onchange="this.form.submit()" value="<%=email._id %>" onclick="return confirm('Are you sure you want to delete this item?');"
+             class="btn btn-warning "> Delete </button>
+    </div>
+    <% }) %>
+
+
+  </form>
 </div>
