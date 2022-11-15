@@ -183,6 +183,8 @@ router.post("/compose", checkAuthenticated, function(req, res) {
   });
   post.save(function(err) {
     if (!err) {
+      console.log("Created Successfully");
+        req.flash('success', 'Post created Successfully');
       res.redirect("/admin/compose");
     }
   });
