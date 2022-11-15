@@ -175,7 +175,7 @@ router.post("/delete", checkAuthenticated, (req, res) => {
 /*<L><<><><><<><><><><<><<><><><<><><><><><><><>*/
 
 /*To create a post */
-router.post("/compose", checkAuthenticated, authUser, authRole, function(req, res) {
+router.post("/compose", checkAuthenticated, function(req, res) {
   const post = new Post({
     topic: req.body.topic,
     posttitle: req.body.posttitle,
