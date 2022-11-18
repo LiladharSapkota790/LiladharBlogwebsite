@@ -135,7 +135,7 @@ app.get('/login', function(req, res) {
 
 
 /* GET Registration Page */
-app.get('/register', adminUser,  function(req, res) {
+app.get('/register', checkAuthenticated, function(req, res) {
   res.render('signup', {
     message: ["success"],
     err: ""
@@ -190,9 +190,55 @@ app.post("/login", function(req, res) {
       })
     }
   })
-
-
 })
+
+
+
+app.get("/users/accountsetting", checkAuthenticated, (req, res) => {
+  console.log(req.user.id);
+  User.findById(req.user.id, function(err, founduser) {
+    if (err) {
+      console.log(err);
+    } else {
+      founduser = founduser
+
+      res.render("accountsetting", {
+        founduser: founduser
+      })
+    }
+  })
+
+
+
+});
+
+
+app.
+put("/user/accountsetting/updateuser", (req, res) => {
+  console.log(req.user);
+  User.updateOne({
+      username: req.user.username
+    }, {
+      username: req.body.username,
+      password: req.body.password
+    }, {
+      overwrite: true
+    },
+    function(err) {
+      if (err) {
+        res.send(err);
+      } else {
+        res.send("updated");
+      }
+    }
+
+
+
+  )
+
+});
+
+
 
 /* Handle Logout */
 app.get('/signout', function(req, res, next) {
