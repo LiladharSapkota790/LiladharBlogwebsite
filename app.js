@@ -8,6 +8,16 @@ const passportLocalMongoose = require("passport-local-mongoose");
 const findOrCreate = require('mongoose-findorcreate');
 const connectDB = require("./config/db");
 
+
+
+const {
+  authUser,
+  authRole,
+  checkAuthenticated,
+  checkNotAuthenticated,
+  adminUser
+} = require('../middleware/auth');
+
 /*now usig mongoose database for myblog*/
 const mongoose = require("mongoose");
 dotenv.config();
