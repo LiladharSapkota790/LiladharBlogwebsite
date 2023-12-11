@@ -5,11 +5,15 @@
 
 
   <% allposts.forEach(function(post, idx){ %>
+  <% if (idx < 12 ) { %>
+  <div class="question-div">
+    <a href="/allposts/<%=post._id%>" class="question-link">  <h6>
+      
+
+  <em style="color:#975ab6; font-weight:900">Q.N:=> </em> <%=post.posttitle%> </h6> </a>
 
 
-  <% if (idx < 7 ) { %>
-  <div class="question-div home-container">
-    <a href="/allposts/<%=post._id%>" class="question-link" <h6> <strong> Q.N:</strong> <%=post.posttitle%> </h6> </a>
+      
   </div>
 
   <div class="answer">
@@ -20,8 +24,9 @@
 
 
   <% if (allposts.length > 1 ) { %>
-  <a class="btn btn-info shownext" onclick="shownext()"> Show More</a>
-
+  <div class="showmorebtn btn btn-info " id="show_button" onclick="shownext()" >
+  show More
+  </div>
 
 
 
@@ -30,8 +35,8 @@
     <% allposts.forEach(function(post, idx){ %>
 
     <% if (idx > 8 ) { %>
-    <div class="question-div home-container">
-      <a href="/allposts/<%=post._id%>" class="question-link" <h6> <strong> Q.N:</strong> <%=post.posttitle%> </h6> </a>
+    <div class="question-div">
+      <a href="/allposts/<%=post._id%>" class="question-link"> <h6> <strong> Q.N:</strong> <%=post.posttitle%> </h6> </a>
     </div>
 
     <div class="answer">
@@ -55,24 +60,15 @@
 
 
 
-
-
-
-
-
-
-
-
 </div>
 
 
 <script type="text/javascript">
   function shownext() {
-    var showcontent = document.getElementById("myshowmorediv");
-    var shownext = document.getElementsByClassName("shownext");
-    showcontent.classList.remove("showmore");
-      shownext.classList.add("showmore");
-
+  document.getElementById("myshowmorediv").classList.remove("showmore");
+  document.getElementById("show_button").classList.add("hide");
 
   }
+
+
 </script>

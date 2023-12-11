@@ -1,14 +1,4 @@
-.container-fluid-landing {
-  height: 80vh;
-  background-image: url("/images/girlsstudying.jpg");
-  background-position: bottom;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
-  text-align: center;
-  margin: 0;
-  padding: 0;
-}
+
 
 /* landing page css  */
 
@@ -96,6 +86,23 @@
   border-bottom-right-radius: 10px;
   font-size: 1.5em;
 }
+.errormsgcard .errormesg{
+  box-sizing: border-box;
+  box-shadow: 1px 1px 1px #ffffff;
+  width: 45%;
+  border: 1px solid red;
+  border-radius: 10px;
+  padding: 25px;
+  color: red  ;
+  background-color: yellow;
+  position: absolute;
+ 
+}
 
+.errormsgcard{
+  display: flex; 
+  align-items:center;
+  justify-content:center;
 
+}
 /* for mobile devices */

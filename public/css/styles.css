@@ -147,469 +147,497 @@ header {
 }
 
 .question-div .question-link {
-  color: #000000;
-  font-size: 1.4rem;
-  padding: 10px;
-  text-decoration: none;
+
+   text-decoration: none;
+
+}
+.question-div h6{
+  font-size: 1.42rem;
+  line-height: 1.5;
 }
 
 .question-link:hover {
   color: #000000;
   font-weight: bold;
-  font-size: 1.52rem;
-  padding: 15px;
-  border-radius: 10px;
+  font-size: 1.43rem;
+
+  border-radius: 10px;  
 }
 
-.question {
-  background: #ccc;
-  padding: 1.5%;
-  border-radius: 5px;
-}
-
-.question p {
-  padding: 1% 3%;
-}
-
-.answer {
-  padding: 1% 0 0;
-  border-radius: 10px;
-  border-top-style: none;
-  border-top-left-radius: 1px;
-  border-top-right-radius: 1px;
-}
-
-.answer p {
-  font-size: 1.5rem;
-  font-weight: normal;
-  font-family: sans-serif;
-  line-height: 2;
-  text-align: left;
-}
-
-.container .Frequently {
-  background: #975ab6;
-  padding: 2%;
-  text-align: center;
-  border-radius: 4px;
-  color: #fff;
-  margin-bottom: 5%;
-}
-
-.container-fluid-home {
-  padding: 7% 17%;
-}
-
-.home-container {
-  border: 3px solid #000000;
-  padding: 2%;
-  border-radius: 10px;
-  box-shadow: 10px 5px 15px 20px #ffffff;
-}
-
-/* Content page // home.ejs page styling */
-.related-btn {
-  font-size: 1.5em;
-}
-
-/*for compose page style*/
-/*for contributor registration*/
-.formforcontributor {
-  border: 1px solid #090d11;
-  border-radius: 15px;
-  padding: 2%;
-  box-shadow: 1px 2px 3px grey;
-}
-
-.posttitle {
-  border-radius: 8px;
-}
-
-.formforcontributor .form-label {
-  font-size: 2rem;
-}
-
-.register-head {
-  text-align: center;
-}
-
-/*Contact us section style*/
-.container-fluid-message {
-  padding: 4% 12%;
-}
-
-.contactright .phone{
-
-  border-radius: 100%;
-  width: 30%;
-  margin-bottom: 3%;
-}
-
-.form-div {
-  padding: 5%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.formformessage {
-  width: 100%;
-  border: 1px solid #090d11;
-  border-radius: 15px;
-  padding: 5%;
-  box-shadow: 1px 15px 13px grey;
-}
-
-.contact-input {
-  font-size: 1.52rem;
-}
-
-.form-text {
-  font-size: 1.52rem;
-}
-
-/*error styling*/
-.alcenter {
-  text-align: center;
-}
-
-.errorpage,
-img {
-  width: 78%;
-}
-
-/*footer styling*/
-.footer {
-  margin-top: 4%;
-  text-align: center;
-  background-color: #357EC7;
-  bottom: 0;
-}
-
-.footer p {
-  margin-top: 25px;
-  font-size: 12px;
-  color: #fff;
-}
-
-.footer-p {
-  color: #000000;
-  font-size: 1.2rem;
-  padding: 2% 0;
-  font-weight: bolder;
-  font-family: sans-serif;
-}
-
-.footer-p p {
-  opacity: 1;
-}
-
-.newsletterinputfooter {
-  width: 40%;
-  padding: 0.4%;
-  border-radius: 20px;
-}
-
-.newsletterinputfooter::first-letter {
-  transform: upperCase;
-}
-
-.copyright {
-  text-align: center;
-  padding: 4%;
-}
-
-.designer {
-  opacity: 0.6;
-}
-
-.designer:hover {
-  opacity: 0.8;
-  color: yellow;
-  font-size: 1.2rem;
-}
-
-.subscribe-btn {
-  padding: 0.4%;
-}
-
-.social-icon {
-  background: #ffffff;
-  border-radius: 15px;
-  margin: 0 34%;
-}
-
-.social-icon a {
-  padding: 2%;
-  text-decoration: none;
-}
-
-.social-media:hover {
-  color: rgb(255, 0, 0);
-}
-
-
-
-/*style for allinone page*/
-
-.showmore{
-display: none;
-}
-
-
-
-.showmoreafter{
-  display: block;
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-/* for mobile and small devices */
-@media only screen and (max-width: 900px) {
-  .common-para {
-    font-size: 1rem;
+  .question {
+    background: #ccc;
+    padding: 1.5%;
+    border-radius: 5px;
   }
 
-  .common-heading-forquestion {
-    font-size: 1.56rem;
-    font-weight: bold;
+  .question p {
+    padding: 1% 3%;
   }
 
-  /*for responsive navbar*/
-  .navbar {
-    flex-direction: column;
-    align-items: flex-start;
+  .answer {
+    padding: 1% 0 0;
+    border-radius: 10px;
+    border-top-style: none;
+    border-top-left-radius: 1px;
+    border-top-right-radius: 1px;
   }
 
-  .toggle-button {
-    display: flex;
+  .answer p {
+    font-size: 1.5rem;
+    font-weight: normal;
+    font-family: sans-serif;
+    line-height: 2;
+    text-align: left;
   }
 
-  .navbar-right {
-    display: none;
-    width: 100%;
-    margin-top: 1%;
-  }
-
-  .navbar-nav {
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-    padding: 0;
-    margin-top: 5%;
-    margin-left: 10%;
-  }
-
-  .navbar-links ul li {
+  .container .Frequently {
+    background: #975ab6;
+    padding: 2%;
     text-align: center;
+    border-radius: 4px;
+    color: #fff;
+    margin-bottom: 5%;
   }
 
-  .navbar-links ul li a {
-    padding: .5rem 1rem;
+  .container-fluid-home {
+    padding: 7% 17%;
   }
 
-  .navbar-right.active {
-    display: flex;
+  .home-container {
+    border: 3px solid #000000;
+    padding: 2%;
+    border-radius: 10px;
+    box-shadow: 10px 5px 15px 20px #ffffff;
   }
 
+
+  /*landing page div*/
   .container-fluid-landing {
-    height: 70vh;
-    background-image: url(/images/girlsstudying.jpg);
-    /* background-position: bottom; */
+    height: 80vh;
+    background-image: url("/images/girlsstudying.jpg");
+    background-position: bottom;
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
     text-align: center;
+    margin: 0;
     padding: 0;
   }
 
-  .navbar {
-    margin-bottom: 0;
-    background-color: #357EC7;
+
+
+
+
+
+
+
+  /* Content page // home.ejs page styling */
+  .related-btn {
+    font-size: 1.5em;
   }
 
-  .navbar {
-    position: relative;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .nav>li {
-    margin-left: 5px;
-  }
-
-  .navbar-default .navbar-nav>li>a:hover {
-    border: 1px solid none;
-    margin-bottom: 5px;
-  }
-
-  /*this is for home page */
-  .study {
-    font-size: 3rem;
-  }
-
-  .company-message {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    margin-left: 0;
-  }
-
-  .company-message .main-heading {
-    font-size: 4rem;
-    font-weight: 900;
-    font-family: emoji;
-    color: #ffffff;
-    margin-bottom: 4%;
-    margin-top: 10%;
-    text-align: center;
-    line-height: 1;
-  }
-
-  .ournewsletter {
-  margin-top: 15%;
-  }
-
-  .home-email-input {
-    font-size: 1.2em;
-    padding: 10px;
-    width: 10%;
-    border: none;
-    box-shadow: -1px 3px -1px grey;
-    border-top-right-radius: 30px;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 30px;
-  }
-
-  .subscribe-btn-home {
-    padding: 8px;
-    /* background-color: red; */
-    width: 24%;
-    /* position: relative; */
-    border: 2px solid red;
-    border-top-style: none;
-    /* color: #ffffff; */
-    /* font-size: 1.5em; */
-    margin-left: -24%;
-    /* z-index: 1; */
-    /* border-top-right-radius: 10px; */
-    /* border-bottom-right-radius: 10px; */
-  }
-
-.mobile-thanks{
-  margin-top: 30%;
-}
-
-
-  .dashboardnav {
-    height: 100%;
-    /* width: 190px; */
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    /* padding-top: 15px; */
-    /* padding-bottom: 15px; */
-    border: 0;
-    border-radius: 0;
-    margin-bottom: 0;
-    background-color: #357EC7;
-  }
-
-  /* style for joinand contribute */
+  /*for compose page style*/
+  /*for contributor registration*/
   .formforcontributor {
-    width: 100%;
-    border-radius: 15px;
-    padding: 10%;
     border: 1px solid #090d11;
-    border-radius: 5px;
+    border-radius: 15px;
+    padding: 2%;
     box-shadow: 1px 2px 3px grey;
   }
 
-  .form-div p {
-    margin-bottom: 10%;
+  .posttitle {
+    border-radius: 8px;
   }
 
-  .form-div>h2 {
-    margin-top: 8%;
+  .formforcontributor .form-label {
+    font-size: 2rem;
   }
 
-  .home-email-input {
-    width: 82%;
+  .register-head {
+    text-align: center;
   }
 
-  .home-nav {
-    display: block;
+  /*Contact us section style*/
+  .container-fluid-message {
+    padding: 4% 12%;
   }
 
-  .related-btn {
-    font-size: 1em;
+  .contactright .phone {
+
+    border-radius: 100%;
+    width: 30%;
+    margin-bottom: 3%;
   }
 
-  .related-btn>a {
-    margin: 10px;
+  .form-div {
+    padding: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
-  .container-fluid-home {
-    padding: 10% 3%;
+  .formformessage {
+    width: 100%;
+    border: 1px solid #090d11;
+    border-radius: 15px;
+    padding: 5%;
+    box-shadow: 1px 15px 13px grey;
   }
 
-  .question-div {
-    border: 1px solid #000000;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    margin-bottom: 7px;
-    border-radius: 2px;
+  .contact-input {
+    font-size: 1.52rem;
   }
 
-  /* for question and ans  */
-  .postans {
-    font-size: 1.4rem;
+  .form-text {
+    font-size: 1.52rem;
   }
 
+  /*error styling*/
+  .alcenter {
+    text-align: center;
+  }
 
-/*This is for admin dashboard*/
+  .errorpage,
+  img {
+    width: 78%;
+  }
 
-.main{
-  margin-left: 40px;
-}
-.dashboardnav {
-    height: 100%;
-    /* width: 190px; */
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    /* padding-top: 15px; */
-    /* padding-bottom: 15px; */
-    border: 0;
-    border-radius: 0;
-    margin-bottom: 0;
+  /*footer styling*/
+  .footer {
+    margin-top: 4%;
+    text-align: center;
     background-color: #357EC7;
-}
-.dashboard-heading {
-    margin-top: -4%;
-    margin-bottom: 2%;
-    margin-left: 10%;
-}
+    bottom: 0;
+  }
 
-.footer{
-  margin: 5% 0;
-}
+  .footer p {
+    margin-top: 25px;
+    font-size: 12px;
+    color: #fff;
+  }
 
-}
+  .footer-p {
+    color: #000000;
+    font-size: 1.2rem;
+    padding: 2% 0;
+    font-weight: bolder;
+    font-family: sans-serif;
+  }
+
+  .footer-p p {
+    opacity: 1;
+  }
+
+  .newsletterinputfooter {
+    width: 40%;
+    padding: 0.4%;
+    border-radius: 20px;
+  }
+
+  .newsletterinputfooter::first-letter {
+    transform: upperCase;
+  }
+
+  .copyright {
+    text-align: center;
+    padding: 4%;
+  }
+
+  .designer {
+    opacity: 0.6;
+  }
+
+  .designer:hover {
+    opacity: 0.8;
+    color: yellow;
+    font-size: 1.2rem;
+  }
+
+  .subscribe-btn {
+    padding: 0.4%;
+  }
+
+  .social-icon {
+    background: #ffffff;
+    border-radius: 15px;
+    margin: 0 34%;
+  }
+
+  .social-icon a {
+    padding: 2%;
+    text-decoration: none;
+  }
+
+  .social-media:hover {
+    color: rgb(255, 0, 0);
+  }
+
+
+
+  /*style for allinone page*/
+
+  .showmore {
+    display: none;
+  }
+
+
+
+  .shownext {
+    display: block;
+    background-color: red;
+  }
+
+  .hide {
+    display: none;
+  }
+
+
+
+
+
+
+
+
+
+
+  /* for mobile and small devices */
+  @media only screen and (max-width: 900px) {
+    .common-para {
+      font-size: 1rem;
+    }
+
+    .common-heading-forquestion {
+      font-size: 1.56rem;
+      font-weight: bold;
+    }
+
+    /*for responsive navbar*/
+    .navbar {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .toggle-button {
+      display: flex;
+    }
+
+    .navbar-right {
+      display: none;
+      width: 100%;
+      margin-top: 1%;
+    }
+
+    .navbar-nav {
+      display: flex;
+      flex-direction: column;
+      margin: 0;
+      padding: 0;
+      margin-top: 5%;
+      margin-left: 10%;
+    }
+
+    .navbar-links ul li {
+      text-align: center;
+    }
+
+    .navbar-links ul li a {
+      padding: .5rem 1rem;
+    }
+
+    .navbar-right.active {
+      display: flex;
+    }
+
+    .container-fluid-landing {
+      height: 80vh;
+      background-image: url(/images/girlsstudying.jpg);
+      /* background-position: bottom; */
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-attachment: fixed;
+      text-align: center;
+      padding: 0;
+    }
+
+    .navbar {
+      margin-bottom: 0;
+      background-color: #357EC7;
+    }
+
+    .navbar {
+      position: relative;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav>li {
+      margin-left: 5px;
+    }
+
+    .navbar-default .navbar-nav>li>a:hover {
+      border: 1px solid none;
+      margin-bottom: 5px;
+    }
+
+    /*this is for home page */
+    .study {
+      font-size: 3rem;
+    }
+
+    .company-message {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      margin-left: 0;
+    }
+
+    .company-message .main-heading {
+      font-size: 4rem;
+      font-weight: 900;
+      font-family: emoji;
+      color: #ffffff;
+      margin-bottom: 4%;
+      margin-top: 10%;
+      text-align: center;
+      line-height: 1;
+    }
+
+    .ournewsletter {
+      margin-top: 15%;
+    }
+
+    .home-email-input {
+      font-size: 1.2em;
+      padding: 10px;
+      width: 10%;
+      border: none;
+      box-shadow: -1px 3px -1px grey;
+      border-top-right-radius: 30px;
+      border-top-left-radius: 10px;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 30px;
+    }
+
+    .subscribe-btn-home {
+      padding: 8px;
+      /* background-color: red; */
+      width: 24%;
+      /* position: relative; */
+      border: 2px solid red;
+      border-top-style: none;
+      /* color: #ffffff; */
+      /* font-size: 1.5em; */
+      margin-left: -24%;
+      /* z-index: 1; */
+      /* border-top-right-radius: 10px; */
+      /* border-bottom-right-radius: 10px; */
+    }
+
+    .mobile-thanks {
+      margin-top: 30%;
+    }
+
+
+    .dashboardnav {
+      height: 100%;
+      /* width: 190px; */
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      /* padding-top: 15px; */
+      /* padding-bottom: 15px; */
+      border: 0;
+      border-radius: 0;
+      margin-bottom: 0;
+      background-color: #357EC7;
+    }
+
+    /* style for joinand contribute */
+    .formforcontributor {
+      width: 100%;
+      border-radius: 15px;
+      padding: 10%;
+      border: 1px solid #090d11;
+      border-radius: 5px;
+      box-shadow: 1px 2px 3px grey;
+    }
+
+    .form-div p {
+      margin-bottom: 10%;
+    }
+
+    .form-div>h2 {
+      margin-top: 8%;
+    }
+
+    .home-email-input {
+      width: 82%;
+    }
+
+    .home-nav {
+      display: block;
+    }
+
+    .related-btn {
+      font-size: 1em;
+    }
+
+    .related-btn>a {
+      margin: 10px;
+    }
+
+    .container-fluid-home {
+      padding: 10% 3%;
+    }
+
+    .question-div {
+      border: 1px solid #000000;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+      margin-bottom: 7px;
+      border-radius: 2px;
+    }
+
+    /* for question and ans  */
+    .postans {
+      font-size: 1.4rem;
+    }
+
+
+    /*This is for admin dashboard*/
+
+    .main {
+      margin-left: 40px;
+    }
+
+    .dashboardnav {
+      height: 100%;
+      /* width: 190px; */
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      /* padding-top: 15px; */
+      /* padding-bottom: 15px; */
+      border: 0;
+      border-radius: 0;
+      margin-bottom: 0;
+      background-color: #357EC7;
+    }
+
+    .dashboard-heading {
+      margin-top: -4%;
+      margin-bottom: 2%;
+      margin-left: 10%;
+    }
+
+    .footer {
+      margin: 5% 0;
+    }
+
+  }

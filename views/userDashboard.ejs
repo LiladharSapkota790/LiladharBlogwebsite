@@ -2,7 +2,7 @@
 
 <div class="container-fluid">
 
-  <h2 class="common-heading-md"> Welcome </h2>
+  <h2 class="common-heading-md"> Welcome <%=user %> </h2>
 
 
   <div class="row profile">
@@ -33,7 +33,7 @@
         <div class="profile-usermenu">
           <ul class="nav">
             <li class="active">
-              <a href="/allpostsforadminonly">
+              <a href="/users/posts/postedby/<%=user %>">
                 <i class="glyphicon glyphicon-home"></i>
                 Posts </a>
             </li>

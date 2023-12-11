@@ -2,9 +2,14 @@
 
 <h2 class="common-heading-sm"> Our ournewsletter Subscriber </h2>
 
+<div class="errormsgcard">
+  <div class="errormesg">
+
+  </div>
+</div>
 
 <div class="emails">
-
+  <h3><%=emailnotfound %> </h3>
   <form class="" action="/subscriber/delete" method="post">
 
 
@@ -18,8 +23,7 @@
         </tr>
       </table>
 
-          <button type="checkbox" name="checkboxofsubscriberdelete" onchange="this.form.submit()" value="<%=email._id %>" onclick="return confirm('Are you sure you want to delete this item?');"
-             class="btn btn-warning "> Delete </button>
+      <button type="checkbox" name="checkboxofsubscriberdelete" onchange="this.form.submit()" value="<%=email._id %>" onclick="return confirm('Are you sure you want to delete this item?');" class="btn btn-warning "> Delete </button>
     </div>
     <% }) %>
 

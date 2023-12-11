@@ -2,15 +2,22 @@
 
 
 
-<h3> User Setting</h3>
+<h3> Account Setting </h3>
+<p>
+Manage your account 
+</p>
+<div class="container-fluid">
 
-<form action="/user/accountsetting/updateuser" method="post">
-  <input type="hidden" name="_method" value="Put">
 
-  <h3>Username: </h3>
-  <p class="common-para"> <input type="text" name="username" value="<%=founduser.username %>"> </p>
-  <h3> Password: </h3>
-  <p class="common-para"> <input type="password" name="password" value="<%=founduser.password %>"></p>
+  <form action="/user/accountsetting/updateuser" class="" method="post">
+    <input type="hidden" name="_method" value="Put">
 
-  <button type="button" name="usersettingbutton" onclick="this.form.submit()" class="btn btn-lg btn-primary">Update</button>
-</form>
+    <h3>Username: </h3>
+    <p class="common-para"> <input type="text" name="username" size="50" value="<%=founduser.username %>">  </p>
+    <h3> Password: </h3>
+    <p class="common-para"> <input type="password" name="password" value="<%=founduser.password %>"></p>
+
+    <button type="button" name="usersettingbutton" onclick="this.form.submit()" class="btn btn-lg btn-primary">Update</button>
+  </form>
+
+</div>

@@ -13,7 +13,6 @@ navbar {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-
 }
 
 .counting {
@@ -29,20 +28,19 @@ navbar {
 .counting a {
   text-decoration: none;
 }
-.counting:hover{
-  background:red;
+
+.counting:hover {
+  background: red;
   border-radius: 20px;
   /* transform: rotate(360deg); */
   transition-duration: 1s;
   color: #ffffff;
 }
 
-
-
 .dashboardnav {
   height: 100%;
   /* Full-height: remove this if you want "auto" height */
-  width: 190px;
+
   /* Set the width of the sidebar */
   position: fixed;
   /* Fixed Sidebar (stay in place on scroll) */
@@ -61,7 +59,7 @@ navbar {
 
 /* Style page content */
 .main {
-  margin-left: 100px;
+  margin-left: 150px;
   /* Same as the width of the sidebar */
 }
 
@@ -69,11 +67,13 @@ navbar {
 .dashboardnav a {
   padding: 6px 8px 6px 16px;
   text-decoration: none;
-  font-size: 25px;
+
   color: #ffffff;
   display: block;
   cursor: pointer;
   color: #ffffff;
+  font-size: 16px;
+
 }
 
 .dashboardnav .companyname {
@@ -91,42 +91,44 @@ navbar {
 }
 
 /* Dashboard style */
-
-.dashboard-heading{
+.dashboard-heading {
   margin-top: -4%;
   margin-bottom: 2%;
 }
 
-.dashboard-heading-admin{
+.dashboard-heading-admin {
   margin-top: 1%;
   margin-left: 10%;
 }
 
+/*this is only for admindashboard1 patge design*/
+.admin-container {
+  background: lightblue;
+  padding: 0.5% 10%;
+  margin-bottom: 3%;
+  margin-left: 8%;
+}
 
 /* Emails style */
-.emails{
+.emails {
   display: flex;
-  flex-wrap:wrap;
+  flex-wrap: wrap;
   flex-direction: column;
   border: 1px solid red;
   padding: 1%;
-    background-color: lightblue;
+  background-color: lightblue;
   border-radius: 10px;
   margin-bottom: 2%;
-
 }
 
-.eachemail{
+.eachemail {
   padding: 10px;
 }
 
-.customeremail::first-letter{  
-    text-transform:capitalize;
-    margin-left: 5px;
-
+.customeremail::first-letter {
+  text-transform: capitalize;
+  margin-left: 5px;
 }
-
-
 
 /*navbar style*/
 .dropbtn {
@@ -170,20 +172,19 @@ navbar {
 
 .posts-dropbtn {
   border: 1px solid grey;
-
   border-left-style: none;
   border-right-style: none;
 }
 
-
 /* styling message section */
-.messages{
+.messages {
   display: flex;
-  flex-wrap:wrap;
+  flex-wrap: wrap;
   flex-direction: row;
   justify-self: unset;
 }
-.message-card{ 
+
+.message-card {
   border: 1px solid blueviolet;
   padding: 2%;
   width: 25%;
@@ -191,34 +192,29 @@ navbar {
   box-shadow: #975ab6;
   margin: 1% 2%;
   background-color: rgb(230, 231, 250);
-
 }
 
-
-
 /* styling for posts page admin */
-
-.posts{ 
+.posts {
   padding: 1%;
   margin-left: -6%;
 }
 
-.postans{
+.postans {
   margin: 0;
   padding-bottom: 10px;
   font-size: large;
 }
 
-.eachpost{
+.eachpost {
   border: 1px solid grey;
-  padding: 15px;
   border-bottom-width: thick;
   border-radius: 10px;
   margin-bottom: 1.6%;
-  background-color:#f1f1f5;
+  background-color: #fff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  padding: 20px;
 }
-
-
 
 /* style for compose form */
 .form-group {
@@ -226,32 +222,21 @@ navbar {
   box-shadow: 1px 1px 14px grey;
 }
 
-.compose-form{
+.compose-form {
   margin: 0;
   width: 60%;
   padding: 20px;
-  
 }
+
 .form-group tr {
   padding: 4%;
 }
-
-
 
 .compose-label {
   font-size: 1.3rem;
   font-weight: bold;
   margin-bottom: 1%;
 }
-
-
-
-
-
-
-
-
-
 
 @media screen and (max-height: 450px) {
   .sidenav {
@@ -267,10 +252,12 @@ navbar {
     /* Same as the width of the sidebar */
   }
 
-
   .dashboard-heading {
     margin-top: -4%;
-  margin-left: 10%;
+    margin-left: 15%;
+  }
 
-}
+  .dashboardnav a {
+    font-size: 10px;
+  }
 }

@@ -1,27 +1,87 @@
+<title>Daily study resources update</title>
+<meta charset="UTF-8">
+<meta name="description" content="Free study resources for students and learners">
+<meta name="keywords" content="HTML,CSS,XML,JavaScript, Database, project management, system analyst, cloud computing">
+<meta name="author" content="Liladhar Sapkota">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-<%-include("dashboardpartials/dheader"); -%>
+<link rel="stylesheet" href="/css/dashboard.css">
+<link rel="stylesheet" href="/css/styles.css">
 
 
 
-    <div class="count-container">
+<div class="dashboardnav">
+  <a href="/" class="companyname">Daily Update <br> </a>
+  <hr>
 
-      <div class="counting" id="email">
-        <a href="/allsubscriber">
-          <h5> Total number of Emails:   </h5>
-
-        </a>
-      </div>
-
-      <div class="counting" id="post">
-        <a href="/allpostsforadminonly">
-        <h5> Total number of contents: </h5> </a>
-      </div>
-
-      <div class="counting" id="message">
-        <a href="/admin/allmessages">
-        <h5> Total number of Messages:  </h5> </a>
-      </div>
-
-
-
+  <a href="/admindashboard"> Dashboard</a>
+  <div class="dropdown ">
+    <a>Post⬇️</a>
+    <div class="dropdown-content">
+      <a href="/allpostsforadminonly" class="btn btn-sm posts-dropbtn"> All Posts</a>
+      <a href="/admin/compose" class="btn btn-sm "> Create Post </a>
     </div>
+  </div>
+
+  <a href="/subscriber"> All Clients </a>
+
+
+  <a href="/admin/allmessages">Messages</a>
+
+
+  <a href="/users/profile">User Profile </a>
+  <hr><br>
+
+  <a class="red btn-sm btn-danger" href="/signout" role="button"> Log Out</a>
+
+
+
+</div>
+
+
+<!-- Page content -->
+<div class="row admin-container">
+  <div class="col-lg-6">
+    <h3 class=""> Admin Dashboard Overview </h3>
+  </div>
+  <div class="col-lg-4">
+    <h3> <a href="/users/profile" class="btn btn-lg">  Welcome <%= user %> </a> <a class=" btn-lg btn btn-danger " href="/signout" role="button"> Log Out</a> </h3>
+  </div>
+
+</div>
+
+
+<div class="main">
+
+
+
+
+
+  <div class="count-container">
+
+
+    <div class="counting" id="email">
+      <a href="/subscriber">
+        <h5> Emails:" <%= countEmails %> " </h5>
+
+      </a>
+    </div>
+
+    <div class="counting" id="post">
+      <a href="/allpostsforadminonly">
+        <h5> contents: <%= postCount %> </h5>
+      </a>
+    </div>
+
+    <div class="counting" id="message">
+      <a href="/admin/allmessages">
+        <h5> Messages: <%= messageCount %> </h5>
+      </a>
+    </div>
+
+
+
+  </div>
